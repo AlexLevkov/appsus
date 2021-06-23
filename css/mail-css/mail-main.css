@@ -1,3 +1,16 @@
-tbody{
-    background-color: aqua;
+.mail-item{
+    display: inline-block;
 }
+.mail-item:nth-child(n){
+    border-bottom:1px solid darkgray ;
+}
+.mail-time{
+    width: 150px;
+}
+.mail-title{
+    width: 250px;
+}
+.mail-text{
+    width: 500px;
+}
+
