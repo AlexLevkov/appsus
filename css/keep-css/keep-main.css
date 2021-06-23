@@ -1,0 +1,15 @@
+.keep-notes-list{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.keep-txt-note{
+    background-color: blanchedalmond;
+    border: 1px black solid;
+    margin: 5px;
+    width: 75px;
+    height: 75px;
+
+}
+

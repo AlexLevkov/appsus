@@ -12,7 +12,6 @@ export const storageService = {
 
 function query(entityType) {
     var entities = JSON.parse(localStorage.getItem(entityType)) || []
-    console.log('entities', entities);
     return Promise.resolve(entities);
 }
 
