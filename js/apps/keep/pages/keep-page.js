@@ -7,21 +7,33 @@ export default {
     template: `
     <section class="app-main">
     <keep-create-note @submit="addNote" ></keep-create-note>
-    <keep-notes-list :notes="notes" @removeNote="removeNote"></keep-notes-list>
+    <keep-notes-list :notes="pinnedNotesToShow" @removeNote="removeNote"></keep-notes-list>
+    <keep-notes-list :notes="unPinnedNotesToShow" @removeNote="removeNote" @pinNote="pinNote"></keep-notes-list>
     <router-view @refresh="refresh" ></router-view>
-    <!-- <keep-edit-note></keep-edit-note> -->
     <br/>
-    <!-- {{notes}} -->
+    {{notes}}
+
+
+
 
     </section>
     `,
     data() {
         return {
-            notes: null,
+            notes: [],
         }
     },
     created() {
         this.loadNotes()
+
+    },
+    computed: {
+        pinnedNotesToShow() {
+            return this.notes.filter(note => note.isPinned)
+        },
+        unPinnedNotesToShow() {
+            return this.notes.filter(note => !note.isPinned)
+        }
 
     },
     methods: {
@@ -39,12 +51,19 @@ export default {
         refresh() {
             this.loadNotes()
         },
-
         removeNote(noteIdx) {
             keepService.remove(noteIdx).then(() => {
                 this.loadNotes()
             })
-        }
+        },
+        pinNote(note) {
+            console.log('pin note on root')
+            keepService.put(note).then(() => {
+                this.loadNotes()
+            })
+        },
+
+
     },
     components: {
         keepCreateNote,

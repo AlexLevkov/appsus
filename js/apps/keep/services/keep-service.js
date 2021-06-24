@@ -5,7 +5,7 @@ const KEEP_KEY = 'notes'
 var gNotes = [
     {
         id: 'hd8awehd9723',
-        type: "NoteTxt",
+        type: "keep-note-txt",
         isPinned: true,
         info: {
             txt: "Fullstack Me Baby!"
@@ -16,7 +16,7 @@ var gNotes = [
     },
     {
         id: 'jf2809332f',
-        type: "NoteTxt",
+        type: "keep-note-txt",
         isPinned: true,
         info: {
             txt: "Alexander Magnus!"

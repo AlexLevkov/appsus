@@ -3,7 +3,7 @@ import { keepService } from '../services/keep-service.js'
 export default {
     template: `
     <section>EDIT NOTE
-        <button @click='FinistEdit' >return</button>
+        <button @click='FinishEdit' >Done</button>
 
         <div v-if="note">
 
@@ -61,7 +61,7 @@ export default {
         })
     },
     methods: {
-        FinistEdit() {
+        FinishEdit() {
             console.log('note', this.note);
             keepService.put(this.note).then(() => {
                 this.$emit('refresh')
