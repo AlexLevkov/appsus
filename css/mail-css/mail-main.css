@@ -1,14 +1,14 @@
 .mail-item{
     display: inline-block;
 }
-.mail-item:nth-child(n){
+/* .mail-item:nth-child(n){
     border-bottom:1px solid darkgray ;
-}
+} */
 .mail-time{
     width: 150px;
 }
 .mail-title{
-    width: 250px;
+    width: 300px;
 }
 .mail-text{
     width: 500px;
@@ -20,3 +20,130 @@
     display: flex;
 }
 
+.mail-main{
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    grid-template-rows: 150px 1fr;
+    grid-template-areas: 
+    "logo search"
+    "actions mail-main-list";
+}
+.mail-list{
+    grid-area: mail-main-list;
+    
+    /* display: flex; */
+
+}
+.mail-count{
+    display: flex;
+    list-style: none;
+    padding: 0;
+    background-color: rgb(149, 144, 147);
+    height: 50px;
+    margin: 0;    
+}
+.mail-count li{
+    margin-right: 20px;
+    padding-top: 13px;
+    padding-left: 5px;
+    font-size: 1.4rem;
+}
+.mail-filter{
+    grid-area: search;
+}
+.mail-filter #a{
+    display: none;
+}
+.mail-filter label{
+    cursor: pointer;
+}
+.mail-filter-nav{
+    display: flex;
+    align-items: center; 
+    gap: 100px;
+    font-size: 1.2rem;
+    padding-top: 15px;
+    
+}
+.mail-preview{
+    height: 50px;
+    border-bottom:1px solid darkgray ;
+    display: flex;
+    align-items: center;
+    /* font-size: 1.2rem; */
+    
+
+}
+.mail-preview:hover{
+cursor: pointer;
+}
+.mail-preview:nth-child(even){
+    background-color: silver;
+}
+.mail-search{
+   
+    display: inline-block;
+    height: 50%;
+    font-size: 1.5rem;
+    vertical-align: middle;   
+}
+.mail-search input{
+    height: 80%;
+    border-radius: 15px;
+    margin-top: 10px;
+    width: 700px;
+    font-size: 1.5rem;
+    
+    
+}
+.mail-search input:focus{
+    outline: none;
+}
+.mail-list-line{
+    height: 100%;
+    /* border-bottom:1px solid darkgray ; */
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+
+}
+.mail-compose{
+    text-decoration: none;
+    font-size: 2rem;
+    
+    /* background-color: dodgerblue; */
+    color: black;
+}
+.mail-compose a{
+    display: inline-block;
+    /* height: 100px; */
+    border: solid black 1px;
+    padding: 10px;
+    border-radius: 2em;
+    
+}
+.mail-compose-form{
+    position: absolute;
+    bottom: 7%;
+    right: 10%;
+    display: flex;
+    flex-direction: column;
+    background-color: #312f2f;
+    padding: 10px;
+    border-radius: 5px;
+}
+.mail-toNtitle{
+    display: flex;    
+}
+.mail-toNtitle input{
+    width: 309px;
+    padding: 0;
+    
+}
+.mail-compose-actions{
+    display: flex;
+    justify-content: space-between;
+}
+.active{
+    color:royalblue;
+}

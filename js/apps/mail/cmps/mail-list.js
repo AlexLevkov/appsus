@@ -4,9 +4,9 @@ export default {
     props: ['mails'],
     template: `
     <section class="mail-list" v-if="mails">           
-        <ul>
-            <li>{{totalMails}}</li>
-            <li>{{unreadMails}}</li>
+        <ul class="mail-count">
+            <li>you have {{totalMails}} mails</li>
+            <li>you have {{unreadMails}} unread mails</li>
             <!-- <li>{{readMails}}</li> -->
         </ul>              
         <mail-preview v-for="mail in mails"  :key="mail.id" :mail="mail" />                            
