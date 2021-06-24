@@ -2,25 +2,28 @@ import { keepService } from '../services/keep-service.js'
 
 export default {
     template: `
-    <section>EDIT NOTE
-        <button @click='FinishEdit' >Done</button>
-
-        <div v-if="note">
-
-            <!-- <section
+    <section>
+        
+        <div v-if="note" class="edit-container">
+            <button @click='FinishEdit' >Done</button>
+        <textarea 
+            
+            v-model="note.info.title"
             :style="{padding:'5px'
             ,width:'auto'
             ,height:'auto'
             ,'white-space':'pre-line',
             'text-align': 'left',
-            'background-color': note.style.backgroundColor,
+            'backgroundColor': note.style.backgroundColor,
             }" 
-            class="keep-txt-note"
-        >   {{note.info.txt}}  
-            </section> -->
-            
+            name=""
+            id=""
+            cols="30"
+            rows="1">
+            {{note.info.title}}
+        </textarea>
 
-            <textarea 
+        <textarea 
             v-model="note.info.txt"
             :style="{padding:'5px'
             ,width:'auto'
@@ -33,15 +36,13 @@ export default {
             id=""
             cols="30"
             rows="10">
-{{note.info.txt}}</textarea>
+            {{note.info.title}}
+            {{note.info.txt}}
+        </textarea>
 
         </div>
- 
-        
 
-
-        <!-- style="color:blue;text-align:center;" -->
-        
+     
 
     </section>
     `,

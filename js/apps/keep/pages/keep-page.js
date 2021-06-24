@@ -7,11 +7,11 @@ export default {
     template: `
     <section class="app-main">
     <keep-create-note @submit="addNote" ></keep-create-note>
-    <keep-notes-list :notes="pinnedNotesToShow" @removeNote="removeNote"></keep-notes-list>
+    <keep-notes-list :notes="pinnedNotesToShow" @removeNote="removeNote" @pinNote="pinNote"></keep-notes-list>
     <keep-notes-list :notes="unPinnedNotesToShow" @removeNote="removeNote" @pinNote="pinNote"></keep-notes-list>
     <router-view @refresh="refresh" ></router-view>
     <br/>
-    {{notes}}
+    <!-- {{notes}} -->
 
 
 
@@ -57,7 +57,8 @@ export default {
             })
         },
         pinNote(note) {
-            console.log('pin note on root')
+            note.isPinned = !note.isPinned;
+            console.log(note)
             keepService.put(note).then(() => {
                 this.loadNotes()
             })

@@ -6,44 +6,32 @@ export default {
 
         <form class="keep-notes-form" @submit.prevent="onSubmit">
 
+            <input type="text" placeholder="Enter Note Title" v-model="note.info.title">
 
-        <input type="text" placeholder="Enter Note Title" v-model="note.info.title">
-
-        <input v-if="isAddImg" 
-        type="text" placeholder="Enter Img Url" v-model="note.info.imgUrl">
-        
-        <!-- <input type="text" placeholder="Enter Note Title" v-model="note.info.title"> -->
+            <input v-if="isAddImg" 
+            type="text" placeholder="Enter Img Url" v-model="note.info.imgUrl">
+            
+            <input v-if="isAddVideo" 
+            type="text" placeholder="Enter Youtube Url" v-model="note.info.videoUrl">
 
             <textarea  
             v-if="isAddNote"
             placeholder="Enter Note Text" 
             v-model="note.info.txt" 
-            name="" id="" 
             cols="20" rows="5">
             </textarea>
-
-            <!-- <textarea 
-            v-if="isAddImg"
-            placeholder="Enter Img Url" 
-            v-model="note.info.imgUrl" 
-            name="" id="" 
-            cols="20" rows="5">
-            </textarea> -->
 
             <textarea  
-            v-if="isAddVideo"
-            placeholder="Enter Video Url" 
+            v-if="isAddToDo"
+            placeholder="Enter To Do List" 
             v-model="note.info.txt" 
-            name="" id="" 
             cols="20" rows="5">
             </textarea>
 
-     
-
-  
             <button>create note</button>
+
          </form>
-         <!-- :style="{padding:'5px',width:'auto',height:'auto' -->
+         
         <button>
             <img class="paint" src="./icons/paint-board-and-brush.png">
             <select 
@@ -60,15 +48,10 @@ export default {
             </select>
         </button>
 
+        <button @click="addNote" >add note</button>
+        <button @click="addTodo" >add a to do list</button>
         <button @click="addImg" >add img</button>
         <button @click="addVideo" >add video</button>
-        <button @click="addNote" >add note</button>
-
-
-
-
-
-
 
     </section>
     `,
@@ -92,6 +75,7 @@ export default {
             isAddImg: false,
             isAddVideo: false,
             isAddNote: true,
+            isAddToDo: false,
 
         }
     },
@@ -104,6 +88,8 @@ export default {
                 this.note.type = 'keep-note-img'
             } else if (this.isAddVideo) {
                 this.note.type = 'keep-note-video'
+            } else if (this.isAddToDo) {
+                this.note.type = 'keep-note-to-do'
             }
 
 
@@ -111,26 +97,37 @@ export default {
             this.$emit('submit', noteCopy)
             // setTimeout(() => {
             this.note.info.txt = null;
+            this.note.info.title = null;
             // }, 1000);
 
         },
         addImg() {
             console.log('addImg')
+            this.isAddToDo = false
             this.isAddNote = false
             this.isAddVideo = false
             this.isAddImg = true
         },
         addVideo() {
             console.log('addVideo')
+            this.isAddToDo = false
             this.isAddNote = false
             this.isAddImg = false
             this.isAddVideo = true
         },
         addNote() {
             console.log('addNote')
+            this.isAddToDo = false
             this.isAddImg = false
             this.isAddVideo = false
             this.isAddNote = true
+        },
+        addTodo() {
+            this.isAddImg = false
+            this.isAddVideo = false
+            this.isAddNote = false
+            this.isAddToDo = true
+
         }
     },
 

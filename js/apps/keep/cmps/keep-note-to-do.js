@@ -10,10 +10,7 @@ export default {
     'background-color': note.style.backgroundColor,
     }" 
     class="keep-txt-note"
-     
->   
-    <span style="font-weight: bold" >{{note.info.title}}</span> 
-    {{note.info.txt}}  
+>   {{note.info.txt}}  
      
     </section>
     `,

@@ -1,5 +1,6 @@
 import keepNoteTxt from './keep-note-txt.js'
 import keepNoteImg from './keep-note-img.js'
+import keepNoteToDo from './keep-note-to-do.js'
 
 export default {
     props: ["notes"],
@@ -7,15 +8,15 @@ export default {
         <section >
             <div class="notes-container">
                 <div 
-                     
                     v-for="note in notes" >
-                    <button @click="editNote(note)">EDIT</button>
-                    <button @click="removeNote(note)">X</button>
-                    <button @click="pinNote(note)">Pin</button>
+                    <button title="remove" @click="removeNote(note)">❌</button>
+                    <button title="edit" @click="editNote(note)">🧰</button>
+                    <button title="pin" @click="pinNote(note)">📌</button>
                     <component :is="note.type" :note="note" ></component> 
-                </div>
+                </div> 
             </div>
         </section>
+       
     
 
     `,
@@ -36,7 +37,7 @@ export default {
             this.$router.push('/keep/' + note.id)
         },
         pinNote(note) {
-            note.isPinned = !note.isPinned;
+
             this.$emit('pinNote', note)
         }
 
@@ -44,7 +45,8 @@ export default {
     },
     components: {
         keepNoteTxt,
-        keepNoteImg
+        keepNoteImg,
+        keepNoteToDo
 
     },
 

@@ -1,7 +1,7 @@
 export default {
     template: `
     <footer class="app-footer">
-        copyrights (C)
+        Copyrights Alex & Alex (C)
     </footer>
     `
 }
