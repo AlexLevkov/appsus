@@ -2,6 +2,7 @@ import homePage from './pages/home-page.js'
 import mailApp from './apps/mail/pages/mail-page.js';
 import keepApp from './apps/keep/pages/keep-page.js';
 import mailCompose from './apps/mail/cmps/mail-compose.js';
+import mailDetails from './apps/mail/cmps/mail-details.js';
 // import aboutPage from './pages/book-about.js';
 // FIX dynamic path
 
@@ -19,6 +20,10 @@ const routes = [
                 component: mailCompose
             }
         ]
+    },
+    {
+        path: '/mail/:mailId',
+        component: mailDetails
     },
     {
         path: '/keep',

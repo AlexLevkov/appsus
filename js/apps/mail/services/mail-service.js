@@ -2,7 +2,9 @@ import { storageService } from '../../../services/async-storage-service.js'
 export const mailService = {
     query,
     sendMail,
-    deleteMail
+    deleteMail,
+    getById,
+    replyToMail
 };
 
 
@@ -15,7 +17,7 @@ function _creatMails() {
             timeCreated: Date.now(),
             title: 'Welcome new user',
             mainTxt: 'you should get familier with...',
-            isRed: false,
+            isRead: false,
             isMarked: false
         },
         {
@@ -66,3 +68,20 @@ function sendMail(txts) {
 function deleteMail(mailId) {
    return storageService.remove(storage_key, mailId)
 }
+
+function getById(mailId){
+    return storageService.get(storage_key, mailId)
+}
+function replyToMail(mailId, replyTxt){
+    let mail = getById(mailId)
+    if(!mail.replies || !mail.replies.length){
+        mail.replies = []
+    } 
+    const reply = {
+        txt: replyTxt,
+        timeReplied: Date.now()
+    }
+    mail.replies.push(reply)
+    storageService.put(storage_key, mail)
+
+} 
