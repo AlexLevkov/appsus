@@ -2,15 +2,21 @@
 export default {
     template: `
 <section>
-    <form @submit.prevent>
-        <select name="" id="">
-            <option value="me">Lonly i am so lonly</option>
-        </select>
-        <input v-model="title" type="text">
-        <input v-model="msgTxt" type="text">
-        <button @click="sendMail()">send</button>
-        <button @click.stop="calcel">Cancel</button>
+    <form class="mail-compose-form" @submit.prevent>
+        <div class="mail-toNtitle">
 
+            <select name="" id="">
+                <option value="me">Lonely i am so lonely</option>
+            </select>
+            <input v-model="title" type="text" placeholder="Subject">
+        </div>
+        <textarea v-model="msgTxt"  cols="60" rows="40" type="text"></textarea>
+        <div class="mail-compose-actions">
+
+            <button @click="sendMail()">send</button>
+            <button @click.stop="calcel">Cancel</button>
+            
+        </div>
         
     </form>
 </section>
