@@ -1,6 +1,7 @@
 import homePage from './pages/home-page.js'
 import mailApp from './apps/mail/pages/mail-page.js';
 import keepApp from './apps/keep/pages/keep-page.js';
+import keepEditNote from './apps/keep/cmps/keep-edit-note.js'
 import mailCompose from './apps/mail/cmps/mail-compose.js';
 import mailDetails from './apps/mail/cmps/mail-details.js';
 // import aboutPage from './pages/book-about.js';
@@ -14,9 +15,9 @@ const routes = [
     {
         path: '/mail',
         component: mailApp,
-        children:[
+        children: [
             {
-                path:'/mail/compose',
+                path: '/mail/compose',
                 component: mailCompose
             }
         ]
@@ -27,7 +28,14 @@ const routes = [
     },
     {
         path: '/keep',
-        component: keepApp
+        component: keepApp,
+        children: [
+            {
+                path: '/keep/:noteId', // RVW
+                component: keepEditNote
+            }
+
+        ]
     },
     // {
     //     path: '/about',

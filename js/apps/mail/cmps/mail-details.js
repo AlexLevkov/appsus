@@ -6,7 +6,7 @@ export default {
     <h2>{{mail.title}}</h2>
     <p>{{mail.mainTxt}}</p> 
     <button @click="openReply">reply</button>
-    <div class="mail-reply-comtainer" v-if="isReply">
+    <div class="mail-reply-container" v-if="isReply">
         <hr />
         <textarea v-model="replyTxt" cols="50" rows="10" placeholder="reply"></textarea>
         <button @click="reply">Send</button>

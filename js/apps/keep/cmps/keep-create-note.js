@@ -6,26 +6,32 @@ export default {
 
         <form @submit.prevent="onSubmit">
 
-            <textarea v-model="note.info.txt" name="" id="" cols="30" rows="10"></textarea>
-
-            {{note.info.txt}}
-
-            <!-- <input 
-            v-model="note.info.txt" class="keep-input" type="text" placeholder="Enter Note">
-            -->
+            <textarea  
+            placeholder="Enter Note" 
+            v-model="note.info.txt" 
+            name="" id="" 
+            cols="20" rows="5">
+            </textarea>
+  
             <button>create note</button>
          </form>
-
+         <!-- :style="{padding:'5px',width:'auto',height:'auto' -->
         <button>
             <img class="paint" src="./icons/paint-board-and-brush.png">
-            <select name="colors" id="colors">
-            <option value="red">red</option>
-            <option value="blue">blue</option>
-            <option value="green">green</option>
-            <option value="yellow">yellow</option>
+            <select 
+            :style="{color:note.style.backgroundColor}"
+            v-model="note.style.backgroundColor" 
+            name="colors" 
+            id="colors">
+
+            <option :style="{color:'lightblue'}" value="lightblue">⬤</option>
+            <option :style="{color:'lightgreen'}" value="lightgreen">⬤</option>
+            <option :style="{color:'lightgrey'}" value="lightgrey">⬤</option>
+            <option :style="{color:'lightpink'}" value="lightpink">⬤</option>
+            <option :style="{color:'blanchedalmond'}" value="blanchedalmond">⬤</option>
             </select>
         </button>
-
+    {{note.style.backgroundColor}}
     </section>
     `,
     data() {
@@ -34,15 +40,24 @@ export default {
                 info:
                 {
                     txt: null
+                },
+                style:
+                {
+                    backgroundColor: 'blanchedalmond'
                 }
 
-            }
+            },
+
         }
     },
     methods: {
         onSubmit() {
-            console.log('submmit');
-            this.$emit('submit', this.note)
+            const noteCopy = JSON.parse(JSON.stringify(this.note))
+            this.$emit('submit', noteCopy)
+            // setTimeout(() => {
+            this.note.info.txt = null;
+            // }, 1000);
+
         }
     },
 

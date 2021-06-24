@@ -3,12 +3,12 @@ import keepNoteTxt from './keep-note-txt.js'
 export default {
     props: ["notes"],
     template: `
-    <!-- break-spaces RVW --> 
         <section >
             <div class="notes-container">
                 <div 
                      
                     v-for="note in notes" >
+                    <button @click="editNote(note)">EDIT</button>
                     <button @click="removeNote(note)">X</button>
                     <component :is="type" :note="note" ></component> 
                 </div>
@@ -25,10 +25,11 @@ export default {
     methods: {
 
         removeNote(note) {
-            console.log('delete')
-            console.log(note.id)
             this.$emit('removeNote', note.id)
 
+        },
+        editNote(note) {
+            this.$router.push('/keep/' + note.id)
         }
 
 
@@ -40,3 +41,4 @@ export default {
 
 
 }
+

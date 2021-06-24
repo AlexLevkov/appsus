@@ -1,5 +1,5 @@
 import { storageService } from '../../../services/async-storage-service.js'
-export const keepService = { query, post, remove }
+export const keepService = { query, post, remove, get, put }
 
 const KEEP_KEY = 'notes'
 var gNotes = [
@@ -9,6 +9,9 @@ var gNotes = [
         isPinned: true,
         info: {
             txt: "Fullstack Me Baby!"
+        },
+        style: {
+            backgroundColor: 'blanchedalmond'
         }
     },
     {
@@ -17,6 +20,9 @@ var gNotes = [
         isPinned: true,
         info: {
             txt: "Alexander Magnus!"
+        },
+        style: {
+            backgroundColor: 'blanchedalmond'
         }
     }
 ]
@@ -39,3 +45,12 @@ function post(note) {
 function remove(noteIdx) {
     return storageService.remove(KEEP_KEY, noteIdx)
 }
+
+function get(noteIdx) {
+    return storageService.get(KEEP_KEY, noteIdx)
+}
+
+function put(note) {
+    return storageService.put(KEEP_KEY, note)
+}
+
