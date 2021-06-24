@@ -4,7 +4,8 @@ export const mailService = {
     sendMail,
     deleteMail,
     getById,
-    replyToMail
+    replyToMail,
+    markAsRead
 };
 
 
@@ -25,7 +26,7 @@ function _creatMails() {
             timeCreated: Date.now(),
             title: 'Rules and policy',
             mainTxt: 'you read this first',
-            isRed: false,
+            isRead: false,
             isMarked: false
         },
         {
@@ -33,7 +34,7 @@ function _creatMails() {
             timeCreated: Date.now(),
             title: 'Welcome to AppSus mail system',
             mainTxt: 'you should try the Keep App aswell',
-            isRed: false,
+            isRead: false,
             isMarked: false
         },
 
@@ -84,4 +85,15 @@ function replyToMail(mailId, replyTxt){
     mail.replies.push(reply)
     storageService.put(storage_key, mail)
 
-} 
+}
+
+function markAsRead(mailId){
+    return getById(mailId).then((mail) =>{
+        mail.isRead = true        
+        storageService.put(storage_key, mail)
+    })
+        
+   
+    
+}
+ 

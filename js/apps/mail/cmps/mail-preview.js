@@ -4,10 +4,10 @@ export default {
     props: ['mail'],
     template: `
         <section class="mail-preview">
-                <div @click="func">
-                    <label>
-                            <input v-model="mail.isMarked" type="checkbox" >
-                    </label>
+            <label>
+                    <input v-model="mail.isMarked" type="checkbox" >
+            </label>
+                <div @click.stop="readMail" :class="{ notRead: !mail.isRead }">
                     <article class="mail-time mail-item">{{this.timeSent}}</article>
                     <article class="mail-title mail-item">{{mail.title}}</article>
                     <article class="mail-text mail-item">{{mail.mainTxt}}</article>
@@ -22,7 +22,7 @@ export default {
         }
     },
     methods:{
-        func(){
+        readMail(){            
             this.$router.push('/mail/' + this.mail.id)
         }
     }
