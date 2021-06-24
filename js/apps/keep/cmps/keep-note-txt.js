@@ -1,9 +1,18 @@
 export default {
-    props: ["notes"],
+    props: ["note"],
     template: `
-    <section>
-    <div class="keep-txt-note" v-for="note in notes" >{{note.info.txt}}</div>
-    </section>
+    <section
+    :style="{width:'auto',height:'auto','white-space':'pre-wrap', 'text-align': 'left'}" 
+                    class="keep-txt-note"
     
-    `
+    >
+    {{note.info.txt}}
+    
+    </section>
+    `,
+    methods: {
+
+    }
+
+
 }

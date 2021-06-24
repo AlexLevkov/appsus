@@ -6,9 +6,15 @@ export default {
     template: `
     <section class="app-main">
     <keep-create-note @submit="addNote" ></keep-create-note>
-    <keep-notes-list :notes="notes" ></keep-notes-list>
+    <keep-notes-list :notes="notes" @removeNote="removeNote"></keep-notes-list>
     <br/>
-    {{notes}}
+    <!-- {{notes}} -->
+
+
+
+
+ 
+
     </section>
     `,
     data() {
@@ -29,6 +35,14 @@ export default {
         },
         addNote(note) {
             keepService.post(note).then(() => {
+                this.loadNotes()
+            })
+
+        },
+        removeNote(noteIdx) {
+            console.log('removing note')
+            console.log('noteIdx', noteIdx);
+            keepService.remove(noteIdx).then(() => {
                 this.loadNotes()
             })
         }

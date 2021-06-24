@@ -1,4 +1,4 @@
-.keep-notes-list{
+.notes-container{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -11,5 +11,10 @@
     width: 75px;
     height: 75px;
 
+}
+
+.paint{
+height: 20px;
+width: 20px;
 }
 
