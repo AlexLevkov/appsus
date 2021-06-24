@@ -13,4 +13,10 @@
 .mail-text{
     width: 500px;
 }
+.notRead{
+    font-weight: bold;   
+}
+.mail-preview{
+    display: flex;
+}
 

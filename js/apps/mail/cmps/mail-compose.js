@@ -9,6 +9,8 @@ export default {
         <input v-model="title" type="text">
         <input v-model="msgTxt" type="text">
         <button @click="sendMail()">send</button>
+        <button @click.stop="calcel">Cancel</button>
+
         
     </form>
 </section>
@@ -30,6 +32,9 @@ export default {
             this.msgTxt = null
             this.$router.push('/mail')
 
+        },
+        calcel(){
+            this.$router.push('/mail')
         }
     }
 }

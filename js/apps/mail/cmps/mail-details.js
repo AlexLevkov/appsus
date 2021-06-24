@@ -11,7 +11,8 @@ export default {
         <textarea v-model="replyTxt" cols="50" rows="10" placeholder="reply"></textarea>
         <button @click="reply">Send</button>
 
-    </div>  
+    </div>
+    <router-link to="/mail">Back to mail</router-link>
 
     </section>
     `,
@@ -37,7 +38,12 @@ export default {
         mailService.getById(mailId)
             .then((mail) => {
                 this.mail = mail
-                mail.isRead = true
-            });
+                console.log(mail)              
+                mailService.markAsRead(mail.id)
+            })
+           
+
+            
+
     }
 }
