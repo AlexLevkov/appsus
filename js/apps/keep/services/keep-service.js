@@ -34,6 +34,7 @@ var gNotes = [
         type: "keep-note-img",
         isPinned: false,
         info: {
+            title: 'Knight',
             txt: "",
             imgUrl: 'https://ih1.redbubble.net/image.2054593603.1211/flat,128x,075,f-pad,128x128,f8f8f8.jpg'
         },
@@ -84,10 +85,12 @@ var gNotes = [
     {
         id: '34f34f4f',
         type: "keep-note-img",
+        title: 'poem',
         isPinned: false,
         info: {
             txt: "",
-            imgUrl: 'https://image.flaticon.com/icons/png/128/753/753305.png'
+            imgUrl: 'https://image.flaticon.com/icons/png/128/753/753305.png',
+            title: 'flower',
         },
         style: {
             backgroundColor: 'white'

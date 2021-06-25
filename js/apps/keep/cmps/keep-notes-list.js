@@ -1,6 +1,7 @@
 import keepNoteTxt from './keep-note-txt.js'
 import keepNoteImg from './keep-note-img.js'
 import keepNoteToDo from './keep-note-to-do.js'
+import keepNoteVideo from './keep-note-video.js'
 
 export default {
     props: ["notes"],
@@ -46,7 +47,8 @@ export default {
     components: {
         keepNoteTxt,
         keepNoteImg,
-        keepNoteToDo
+        keepNoteToDo,
+        keepNoteVideo
 
     },
 

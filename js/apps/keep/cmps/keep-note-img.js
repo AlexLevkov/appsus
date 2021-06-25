@@ -10,8 +10,9 @@ export default {
     'background-color': note.style.backgroundColor,
     }" 
     class="keep-txt-note"
-    >{{note.info.txt}}    
-    <img :src="note.info.imgUrl">
+    ><span style="font-weight: bold" >{{note.info.title}}</span> 
+    {{note.info.txt}}    
+    <img class="keep-note-img":src="note.info.imgUrl">
     </section>
     `,
 

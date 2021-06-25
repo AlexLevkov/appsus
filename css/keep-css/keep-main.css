@@ -1,3 +1,9 @@
+@import "./keep-cmp-css/keep-note-cmp.css";
+
+.keep-task-done{
+    text-decoration: line-through;
+}
+
 button{
     font-size: large;
     font-family: Arial, Helvetica, sans-serif;

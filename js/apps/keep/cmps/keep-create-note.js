@@ -28,18 +28,19 @@ export default {
             cols="20" rows="5">
             </textarea>
 
-            <button>create note</button>
+            <button ref="subbmitBtn">Add Note</button>
 
          </form>
          
         <button>
             <img class="paint" src="./icons/paint-board-and-brush.png">
+
             <select 
             :style="{color:note.style.backgroundColor}"
             v-model="note.style.backgroundColor" 
             name="colors" 
             id="colors">
-
+            
             <option :style="{color:'lightblue'}" value="lightblue">⬤</option>
             <option :style="{color:'lightgreen'}" value="lightgreen">⬤</option>
             <option :style="{color:'lightgrey'}" value="lightgrey">⬤</option>
@@ -48,11 +49,11 @@ export default {
             </select>
         </button>
 
-        <button @click="addNote" >add note</button>
-        <button @click="addTodo" >add a to do list</button>
-        <button @click="addImg" >add img</button>
-        <button @click="addVideo" >add video</button>
-
+        <button @click="addNote" >Add Note</button>
+        <button @click="addTodo" >Add To Do List</button>
+        <button @click="addImg" >Add Image</button>
+        <button @click="addVideo" >Add Video</button>
+        <!-- {{note}} -->
     </section>
     `,
     data() {
@@ -61,9 +62,12 @@ export default {
                 type: null,
                 info:
                 {
-                    title: null,
+                    title: '',
                     txt: null,
                     imgUrl: null,
+                    videoUrl: '',
+                    toDoList: null,
+                    isMarked: false
                 },
                 style:
                 {
@@ -76,6 +80,7 @@ export default {
             isAddVideo: false,
             isAddNote: true,
             isAddToDo: false,
+            subbmitBtn: 'submit'
 
         }
     },
@@ -92,13 +97,18 @@ export default {
                 this.note.type = 'keep-note-to-do'
             }
 
+            if (this.isAddToDo) {
+                this.createToDoList()
+            } else if (this.isAddVideo) {
+                this.createVideoUrl()
+            }
 
             const noteCopy = JSON.parse(JSON.stringify(this.note))
             this.$emit('submit', noteCopy)
-            // setTimeout(() => {
+            // copy was made to prevent sending a null text due to async
             this.note.info.txt = null;
             this.note.info.title = null;
-            // }, 1000);
+
 
         },
         addImg() {
@@ -107,6 +117,7 @@ export default {
             this.isAddNote = false
             this.isAddVideo = false
             this.isAddImg = true
+            this.$refs.subbmitBtn.innerText = 'Add Image'
         },
         addVideo() {
             console.log('addVideo')
@@ -114,6 +125,7 @@ export default {
             this.isAddNote = false
             this.isAddImg = false
             this.isAddVideo = true
+            this.$refs.subbmitBtn.innerText = 'Add Video'
         },
         addNote() {
             console.log('addNote')
@@ -121,17 +133,41 @@ export default {
             this.isAddImg = false
             this.isAddVideo = false
             this.isAddNote = true
+            this.$refs.subbmitBtn.innerText = 'Add Note'
         },
         addTodo() {
             this.isAddImg = false
             this.isAddVideo = false
             this.isAddNote = false
             this.isAddToDo = true
+            this.$refs.subbmitBtn.innerText = 'Add To Do List'
+        },
+        createToDoList() {
 
-        }
+            this.note.info.toDoList = this.note.info.txt.split(',')
+            this.note.info.toDoList = this.note.info.toDoList.map((toDo) => { return { isMarked: false, toDo } })
+            this.note.info.txt = null
+        },
+        createVideoUrl() {
+            console.log('createVideoUrl');
+            console.log('this.videoUrl', this.note.info.videoUrl);
+            // console.log('this.note.info.txt', this.note.info.txt);
+            // this.videoUrl = this.note.info.txt
+
+            const idx = this.note.info.videoUrl.indexOf('=')
+            console.log('idx', idx);
+            const strHtml = this.note.info.videoUrl.slice(idx + 1)
+            // const strHtml = 'V7ZVZTGvefQ'
+            console.log('strHtml', strHtml);
+
+
+            this.note.info.videoUrl = `https://www.youtube.com/embed/${strHtml}`
+
+            // `https://www.youtube.com/embed/V7ZVZTGvefQ`
+
+            console.log('this.videoUrl', this.videoUrl);
+        },
+
     },
-
-    components: {
-
-    }
 }
+

@@ -20,10 +20,11 @@ export default {
             id=""
             cols="30"
             rows="1">
-            {{note.info.title}}
+  
         </textarea>
 
         <textarea 
+            v-if="note.info.txt"
             v-model="note.info.txt"
             :style="{padding:'5px'
             ,width:'auto'
@@ -36,11 +37,47 @@ export default {
             id=""
             cols="30"
             rows="10">
-            {{note.info.title}}
-            {{note.info.txt}}
+   
+            
         </textarea>
 
+        <textarea 
+            v-if="note.info.imgUrl"
+            v-model="note.info.imgUrl"
+            :style="{padding:'5px'
+            ,width:'auto'
+            ,height:'auto'
+            ,'white-space':'pre-line',
+            'text-align': 'left',
+            'backgroundColor': note.style.backgroundColor,
+            }" 
+            name=""
+            id=""
+             >
+         
+            
+        </textarea>
+
+        <textarea 
+            v-if="note.info.videoUrl"
+            v-model="note.info.videoUrl"
+            :style="{padding:'5px'
+            ,width:'auto'
+            ,height:'auto'
+            ,'white-space':'pre-line',
+            'text-align': 'left',
+            'backgroundColor': note.style.backgroundColor,
+            }" 
+            name=""
+            id=""
+             >
+         
+            
+        </textarea>
+
+
         </div>
+        
 
      
 
