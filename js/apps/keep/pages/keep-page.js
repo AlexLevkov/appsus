@@ -11,11 +11,6 @@ export default {
     <keep-notes-list :notes="unPinnedNotesToShow" @removeNote="removeNote" @pinNote="pinNote"></keep-notes-list>
     <router-view @refresh="refresh" ></router-view>
     <br/>
-    <!-- {{notes}} -->
-
-
-
-
     </section>
     `,
     data() {
@@ -34,7 +29,6 @@ export default {
         unPinnedNotesToShow() {
             return this.notes.filter(note => !note.isPinned)
         }
-
     },
     methods: {
         loadNotes() {
@@ -46,7 +40,6 @@ export default {
             keepService.post(note).then(() => {
                 this.loadNotes()
             })
-
         },
         refresh() {
             this.loadNotes()
@@ -63,8 +56,6 @@ export default {
                 this.loadNotes()
             })
         },
-
-
     },
     components: {
         keepCreateNote,

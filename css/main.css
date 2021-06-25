@@ -19,6 +19,11 @@ h1,h2,h3,h4,h5,h6,p{
 
 /* MAIN APP */
 
+.app-main-container{
+    display:flex;
+    flex-direction: column;
+}
+
 .app-header{
 height: 7vh;
 display: flex;
@@ -27,7 +32,8 @@ border-bottom: 1px black solid;
 }
 
 .app-main{
-    height: 86vh;
+    flex:1;
+    min-height: 86vh;
 }
 
 .app-footer{
