@@ -1,6 +1,7 @@
 import { router } from './router.js'
 import appHeader from './cmps/app-header.js'
 import appFooter from './cmps/app-footer.js'
+import mailUserMgs from './apps/mail/cmps/mail-user-msg.js'
 
 const options = {
     el: '#app',
@@ -8,6 +9,7 @@ const options = {
     template: `
     <section class="app-main-container">
     <app-header />
+    <mail-user-mgs />
     <router-view />
     <app-footer />
     </section>
@@ -15,8 +17,10 @@ const options = {
     `,
     components: {
         appHeader,
-        appFooter
+        appFooter,
+        mailUserMgs
     }
+    
 }
 
 new Vue(options)

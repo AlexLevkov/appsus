@@ -19,7 +19,8 @@ function _creatMails() {
             title: 'Welcome new user',
             mainTxt: 'you should get familier with...',
             isRead: false,
-            isMarked: false
+            isMarked: false,
+            isSent: false
         },
         {
             id: storageService.makeId(),
@@ -27,7 +28,8 @@ function _creatMails() {
             title: 'Rules and policy',
             mainTxt: 'you read this first',
             isRead: false,
-            isMarked: false
+            isMarked: false,
+            isSent: false
         },
         {
             id: storageService.makeId(),
@@ -35,7 +37,8 @@ function _creatMails() {
             title: 'Welcome to AppSus mail system',
             mainTxt: 'you should try the Keep App aswell',
             isRead: false,
-            isMarked: false
+            isMarked: false,
+            isSent: false
         },
 
     ]
@@ -62,38 +65,41 @@ function sendMail(txts) {
         timeCreated: Date.now(),
         title: txts.title,
         mainTxt: txts.msgTxt,
-        isRed: false
+        isRed: false,
+        isMarked: false,
+        isSent: true
     }
     return storageService.post(storage_key, mail)
 }
 function deleteMail(mailId) {
-   return storageService.remove(storage_key, mailId)
+    return storageService.remove(storage_key, mailId)
 }
 
-function getById(mailId){
+function getById(mailId) {
     return storageService.get(storage_key, mailId)
 }
-function replyToMail(mailId, replyTxt){
-    let mail = getById(mailId)
-    if(!mail.replies || !mail.replies.length){
-        mail.replies = []
-    } 
-    const reply = {
-        txt: replyTxt,
-        timeReplied: Date.now()
-    }
-    mail.replies.push(reply)
-    storageService.put(storage_key, mail)
-
-}
-
-function markAsRead(mailId){
-    return getById(mailId).then((mail) =>{
-        mail.isRead = true        
+function replyToMail(mailId, replyTxt) {
+    return getById(mailId).then((mail) => {
+        mail.isRead = false
+        if (!mail.replies || !mail.replies.length) {
+            mail.replies = []
+        }
+        const reply = {
+            txt: replyTxt,
+            timeReplied: Date.now()
+        }
+        mail.replies.push(reply)
         storageService.put(storage_key, mail)
     })
-        
-   
-    
+
 }
- 
+
+function markAsRead(mailId) {
+    return getById(mailId).then((mail) => {
+        mail.isRead = true
+        storageService.put(storage_key, mail)
+    })
+
+
+
+}

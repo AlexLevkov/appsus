@@ -9,11 +9,10 @@ export default{
             <label :class="{ active: filterBy.isRead }">Display unread only
                 <input v-model="filterBy.isRead" id="a" type="checkbox" @input="filter">
             </label>
-            <label :class="{ active: filterBy.timeRecived }" >sort by time recived
+            <label :class="{ active: filterBy.timeRecived }" >Sort by time recived
                 
                 <input v-model="filterBy.timeRecived" id="a" type="checkbox" @input="filter">
-            </label>
-            <!-- <button @click="filter">By time</button> -->
+            </label>            
         </div>
     </section>
     `,
@@ -27,8 +26,7 @@ export default{
         };
     },
     methods: {
-        filter() {
-            // console.log('filtering...', this.filterBy)
+        filter() {           
             this.$emit('filtered', this.filterBy);
         }
     }

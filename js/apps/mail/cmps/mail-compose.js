@@ -1,4 +1,3 @@
-
 export default {
     template: `
 <section>
@@ -13,7 +12,7 @@ export default {
         <textarea v-model="msgTxt"  cols="60" rows="40" type="text"></textarea>
         <div class="mail-compose-actions">
 
-            <button @click="sendMail()">send</button>
+            <button @click="sendMail()">Send</button>
             <button @click.stop="calcel">Cancel</button>
             
         </div>
@@ -35,7 +34,7 @@ export default {
             }
             this.$emit('sent', mail)
             this.title = null
-            this.msgTxt = null
+            this.msgTxt = null            
             this.$router.push('/mail')
 
         },
