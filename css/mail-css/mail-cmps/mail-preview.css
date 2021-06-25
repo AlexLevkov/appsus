@@ -1,0 +1,16 @@
+.mail-item{
+    display: inline-block;
+}
+.mail-preview{
+    height: 50px;
+    border-bottom:1px solid darkgray ;
+    display: flex;
+    align-items: center;  
+}
+.mail-preview:hover{
+cursor: pointer;
+box-shadow: 0px 0px 10px 2px #5a5858;
+}
+.mail-preview:nth-child(odd){
+    background-color: silver;
+}

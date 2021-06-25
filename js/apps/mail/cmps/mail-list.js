@@ -5,8 +5,8 @@ export default {
     template: `
     <section class="mail-list" v-if="mails">           
         <ul class="mail-count">
-            <li>you have {{totalMails}} mails</li>
-            <li>you have {{unreadMails}} unread mails</li>
+            <li>You have {{totalMails}} mails</li>
+            <li>You have {{unreadMails}} unread mails</li>
             <!-- <li>{{readMails}}</li> -->
         </ul>              
         <mail-preview v-for="mail in mails"  :key="mail.id" :mail="mail" />                            

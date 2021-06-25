@@ -1,10 +1,19 @@
 import { mailService } from '../services/mail-service.js'
+import { eventBus } from '../services/mail-eventBus.js'
 
 export default {
     template: `
     <section v-if="mail" class="app-main">
     <h2>{{mail.title}}</h2>
-    <p>{{mail.mainTxt}}</p> 
+    <p>{{mail.mainTxt}}</p>
+    <article v-if="mail.replies">
+        <div v-for="reply in mail.replies" >
+            <hr />
+            <p>{{reply.txt}}</p>
+            <p>{{timeSent}}</p>
+
+        </div>
+    </article>    
     <button @click="openReply">reply</button>
     <div class="mail-reply-container" v-if="isReply">
         <hr />
@@ -30,7 +39,19 @@ export default {
         },
         reply() {
             if (!this.replyTxt) return
-
+            mailService.replyToMail(this.mail.id, this.replyTxt).then(() => {
+                eventBus.$emit('show-msg', 'Reply Sent')
+                this.$router.push('/mail')
+            })
+        }
+    },
+    computed: {
+        timeSent() {
+            const fullDate = new Date(this.mail.timeCreated)
+            return fullDate.getDate() + '-' +
+                (fullDate.getMonth() + 1) + '-' +
+                fullDate.getFullYear() + '     ' +
+                fullDate.getHours() + ':' + fullDate.getMinutes()
         }
     },
     created() {
@@ -38,12 +59,12 @@ export default {
         mailService.getById(mailId)
             .then((mail) => {
                 this.mail = mail
-                console.log(mail)              
                 mailService.markAsRead(mail.id)
-            })
-           
 
-            
+            })
+
+
+
 
     }
 }

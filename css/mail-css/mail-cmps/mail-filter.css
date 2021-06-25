@@ -1,0 +1,17 @@
+.mail-filter #a{
+    display: none;
+}
+.mail-filter label{
+    cursor: pointer;
+}
+.mail-filter-nav{
+    display: flex;
+    align-items: center; 
+    gap: 100px;
+    font-size: 1.2rem;
+    padding-top: 15px;
+    
+}
+.active{
+    color:royalblue;
+}
