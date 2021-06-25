@@ -8,9 +8,9 @@ export default {
                     <input v-model="mail.isMarked" type="checkbox" >
             </label>
                 <div @click.stop="readMail" :class="{ notRead: !mail.isRead }" class="mail-list-line">
-                    <article class="mail-time mail-item">{{this.timeSent}}</article>
                     <article class="mail-title mail-item">{{mail.title}}</article>
                     <article class="mail-text mail-item">{{mail.mainTxt}}</article>
+                    <article class="mail-time mail-item">{{this.timeSent}}</article>
                     
                 </div>
         </section>
