@@ -4,10 +4,11 @@ import mailActions from '../cmps/mail-actions.js'
 import mailFilter from '../cmps/mail-filter.js';
 export default {
     template: `
-    <section class="app-main mail-main">        
-        <mail-actions @removeMail="deleteMail" @sent="sendMail"  />
-        <div class="mail-compose">
-            <router-link class="mail-compose" to="/mail/compose">compose</router-link>
+    <section class="app-main mail-main"> 
+        <div class="mail-logo">Logo</div>       
+        <div class="mail-main-actionbar">
+            <router-link class="mail-compose" to="/mail/compose">compose</router-link>            
+            <mail-actions @removeMail="deleteMail" @sent="sendMail"  />
         </div>
         <mail-filter @filtered="setfilterBy"/>
         <mail-list  v-if="mails" :mails="mailsToShow" />

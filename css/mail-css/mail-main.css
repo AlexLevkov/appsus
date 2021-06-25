@@ -34,11 +34,39 @@
     /* display: flex; */
 
 }
+.mail-main-actionbar{
+    grid-area: actions;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    border: 1px solid darkgrey;
+    padding-top: 10px;
+}
+.mail-logo{
+    grid-area: logo;
+}
+.mail-actions{
+    width: 100%;
+    text-align: center;
+    border-bottom: darkgray solid 1px;
+}
+.mail-actions button{
+    border: none;
+    background: none;
+    font-size: 1.2rem;
+    height: 50px;
+    padding: 0;
+    /* border-bottom: solid 1px black; */
+}
+.mail-actions button:hover{
+    cursor: pointer;
+}
 .mail-count{
     display: flex;
     list-style: none;
     padding: 0;
-    background-color: rgb(149, 144, 147);
+    background-color: rgb(171 166 169);
     height: 50px;
     margin: 0;    
 }
@@ -76,8 +104,9 @@
 }
 .mail-preview:hover{
 cursor: pointer;
+box-shadow: 0px 0px 10px 2px #5a5858;
 }
-.mail-preview:nth-child(even){
+.mail-preview:nth-child(odd){
     background-color: silver;
 }
 .mail-search{
@@ -92,8 +121,7 @@ cursor: pointer;
     border-radius: 15px;
     margin-top: 10px;
     width: 700px;
-    font-size: 1.5rem;
-    
+    font-size: 1.5rem;    
     
 }
 .mail-search input:focus{
@@ -108,20 +136,21 @@ cursor: pointer;
 
 }
 .mail-compose{
+    padding: 5px;
     text-decoration: none;
     font-size: 2rem;
-    
-    /* background-color: dodgerblue; */
     color: black;
+    border: 1px solid;
+    border-radius: 2em;
 }
-.mail-compose a{
+
+/* .mail-compose a{
     display: inline-block;
-    /* height: 100px; */
     border: solid black 1px;
     padding: 10px;
     border-radius: 2em;
     
-}
+} */
 .mail-compose-form{
     position: absolute;
     bottom: 7%;
