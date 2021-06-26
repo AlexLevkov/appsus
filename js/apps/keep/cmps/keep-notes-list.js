@@ -6,7 +6,7 @@ import keepNoteVideo from './keep-note-video.js'
 export default {
     props: ["notes"],
     template: `
-        <section >
+   נ     <section >
             <div class="notes-container">
                 <div class="keep-note-container"
                     v-for="note in notes" >
