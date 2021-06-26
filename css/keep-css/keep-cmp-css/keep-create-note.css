@@ -1,0 +1,96 @@
+.keep-subbmit-btn{
+    background-color: lightblue;
+      align-self: start;
+    padding: 10px;
+    font-size: 25px;
+    border-radius: 2em;
+    font-weight: bold;
+    background-color: lightblue;
+    border:none
+}
+
+/* helper for all create btns */
+.create-note-btn{
+    height: 40px;
+    width: 40px;
+    vertical-align: bottom;
+    border: none;
+    background-color: inherit;
+    
+}
+
+.create-note-btns{
+    margin: 10px;
+    width: 1000px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.paint-select{
+    height: 40px;
+    width: 40px;
+}
+
+.paint-select:hover{
+    cursor: pointer;
+}
+
+.paint-select-btn{
+    background-image: url('../../icons/paint-board-and-brush.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 40px;
+    width: 40px;
+}
+
+.paint-select{
+        opacity: 0;
+}
+
+.keep-create-note{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.keep-notes-form{
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    width: 1000px;
+}
+
+
+.add-note{
+    background-image: url('../../icons/note.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.add-todo{
+    background-image: url('../../icons/list.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.add-img{
+    background-image: url('../../icons/image.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.add-video{
+    background-image: url('../../icons/video.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.keep-input-to-do,
+.keep-input-video,
+.keep-input-img,
+.keep-input-text,
+.keep-input-title{
+    font-size: 20px;
+    border: lightgray 1px solid;
+    outline: none;
+    margin-top: 5px;
+}
