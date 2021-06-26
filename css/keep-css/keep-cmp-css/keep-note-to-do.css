@@ -1,0 +1,15 @@
+li{
+    display: flex;
+    align-items: center;
+    align-content: center;
+
+}
+
+.keep-remove-task{
+    margin-top: 10px;
+    background-image: url('../../icons/delete.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 20px;
+    width: 20px;
+}
