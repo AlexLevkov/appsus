@@ -22,7 +22,7 @@ export default {
     </li>
 </ul>
 
-<button @click="removeTask">delete</button>
+<button class="keep-remove-task" @click="removeTask"></button>
 
 
      

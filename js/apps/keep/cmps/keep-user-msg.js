@@ -13,6 +13,7 @@ export default {
     },
     created() {
         eventBus.$on('show-msg', (msg) => {
+            console.log(msg)
             this.txt = msg
             setTimeout(() => {
                 this.txt = ''

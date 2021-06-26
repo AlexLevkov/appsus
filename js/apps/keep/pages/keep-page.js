@@ -3,6 +3,7 @@ import keepCreateNote from "../cmps/keep-create-note.js"
 import keepNotesList from "../cmps/keep-notes-list.js"
 import keepEditNote from "../cmps/keep-edit-note.js"
 import keepFilter from "../cmps/keep-filter.js"
+import { eventBus } from '../cmps/keep-event-bus.js'
 
 export default {
     template: `
@@ -51,6 +52,7 @@ export default {
         addNote(note) {
             keepService.post(note).then(() => {
                 this.loadNotes()
+                eventBus.$emit('show-msg', 'Note Added')
             })
         },
         refresh() {

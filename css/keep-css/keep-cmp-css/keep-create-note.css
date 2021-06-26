@@ -1,8 +1,6 @@
 .keep-subbmit-btn{
-    margin-top: 30px;
     background-color: lightblue;
-  
-    align-self: center;
+      align-self: start;
     padding: 10px;
     font-size: 25px;
     border-radius: 2em;
@@ -18,6 +16,15 @@
     vertical-align: bottom;
     border: none;
     background-color: inherit;
+    
+}
+
+.create-note-btns{
+    margin: 10px;
+    width: 1000px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .paint-select{
@@ -83,7 +90,7 @@
 .keep-input-text,
 .keep-input-title{
     font-size: 20px;
-    border: none;
+    border: lightgray 1px solid;
     outline: none;
     margin-top: 5px;
 }
