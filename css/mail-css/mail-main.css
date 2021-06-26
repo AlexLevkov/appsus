@@ -21,12 +21,13 @@
 .mail-compose-link{
     margin-top: 10px;
     margin-bottom: 10px;
-    padding: 5px;
+    padding: 10px;
     text-decoration: none;
-    font-size: 2rem;
-    color: black;
-    border: 1px solid;
+    font-size: 25px;
+    color: black;    
     border-radius: 2em;
+    font-weight: bold;
+    background-color: lightblue;
 }
 .mail-compose-link:hover{
     color: dimgrey;
@@ -41,8 +42,11 @@
 }
 .mail-user-msg{
     position: absolute;
-    top: 7vh;
-    right: 50vh;
+    bottom: 7vh;
+    left: 50px;
+    height: 50px;
+    width: 150px;
+    
     
 }
 
