@@ -41,14 +41,14 @@
     justify-content: space-between;
 }
 .mail-compose-send{
-    background-image: url('../../icons/send.png');
+    background-image: url('../../../icons/send.png');
     background-size: contain;
     background-repeat: no-repeat;
     height: 40px;
     width: 40px;
 }
 .mail-compose-cancel{
-    background-image: url('../../icons/cancle.png');
+    background-image: url('../../..//icons/cancle.png');
     background-size: contain;
     background-repeat: no-repeat;
     height: 40px;
