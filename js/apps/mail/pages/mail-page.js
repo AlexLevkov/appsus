@@ -8,18 +8,21 @@ import { eventBus } from '../services/mail-eventBus.js';
 
 export default {
     template: `
-    <section class="app-main mail-main"> 
-        <div class="mail-logo">Logo</div>       
-        <div class="mail-main-actionbar">
-            <router-link class="mail-compose" to="/mail/compose">Compose</router-link>            
-            <mail-sort @sortBy="setSortBy" />
-            <mail-actions @removeMail="deleteMail" @sent="sendMail"  />
+    <section class="app-main mail-main">
+        <div class="mail-main-side-bar">
+            <div class="mail-logo"><img src="./icons/user.png" alt=""></div>       
+            <div class="mail-main-actionbar">
+                <router-link class="mail-compose-link" to="/mail/compose">Compose</router-link>            
+                <mail-sort v-if="mails" :mails="mails" @sortBy="setSortBy" />
+                <mail-actions @removeMail="deleteMail" @sent="sendMail"  />
+            </div>
         </div>
-        <mail-filter @filtered="setfilterBy"/>
-        <mail-list  v-if="mails" :mails="mailsToShow" />
+        <div class="mail-main-container">
+            <mail-filter @filtered="setfilterBy"/>
+            <mail-list  v-if="mails" :mails="mailsToShow" />
+        </div> 
 
-        <router-view @sent="sendMail"></router-view>
-        <!-- <button @click="deleteMail">test</button> -->
+        <router-view @sent="sendMail"></router-view>        
     </section>
     `,
     data() {
@@ -66,7 +69,7 @@ export default {
     },
 
     methods: {
-        sendMail(mail) {            
+        sendMail(mail) {
             mailService.sendMail(mail).then(() => {
                 eventBus.$emit('show-msg', 'Mail Sent')
                 mailService.query()

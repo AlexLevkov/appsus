@@ -1,8 +1,9 @@
 export default {
+    props: ['mails'],
     template: `
 <section class="mail-sort">
     <div class="mail-sort-item">
-        <button @click="setSortBy(1)">Inbox</button>
+        <button @click="setSortBy(1)">Inbox <span>({{unreadMails}})</span></button>
     </div>
     <div class="mail-sort-item">
         <button @click="setSortBy(-1)">Sent</button>
@@ -30,5 +31,19 @@ export default {
             }
             this.$emit('sortBy', this.sortBy)
         }
+    },
+    computed:{
+        totalMails(){
+            return this.mails.length
+         },
+         unreadMails(){
+             let unread = 0
+             this.mails.forEach((mail) => {
+                 if (!mail.isRead){
+                     unread++
+                 }
+             });
+             return unread
+         },
     }
 }

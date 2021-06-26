@@ -4,24 +4,33 @@ import { eventBus } from '../services/mail-eventBus.js'
 export default {
     template: `
     <section v-if="mail" class="app-main">
-    <h2>{{mail.title}}</h2>
-    <p>{{mail.mainTxt}}</p>
-    <article v-if="mail.replies">
-        <div v-for="reply in mail.replies" >
-            <hr />
-            <p>{{reply.txt}}</p>
-            <p>{{timeSent}}</p>
+        <div class="mail-details-container">
+            <h2 class="mail-details-header">{{mail.title}}</h2>
+            <p class="mail-details-text">{{mail.mainTxt}}</p>
+            <article class="mail-details-text" v-if="mail.replies">
+                <div v-for="reply in mail.replies" >
+                    <hr />
+                    <p>{{timeSent}}</p>
+                    <br />
+                    <p>{{reply.txt}}</p>
+                    
+                </div>
+            </article>    
+        </div>
+        <div class="mail-replay-actions">
+            <button class="mail-replay-btn" @click="openReply">Reply</button>
+            <router-link class="mail-details-Back" to="/mail">Back to mail</router-link>
+        </div>
+    <div class="mail-reply-container" v-if="isReply">
+        <h3>Your Reply</h3>
+        <textarea v-model="replyTxt" cols="50" rows="10" placeholder="reply"></textarea>
+        <div class="mail-replay-btns">
+            <button class="mail-details-reply-btn" @click="reply"></button>
+            <button class="mail-details-cancle-btn" @click="openReply"></button>
 
         </div>
-    </article>    
-    <button @click="openReply">reply</button>
-    <div class="mail-reply-container" v-if="isReply">
-        <hr />
-        <textarea v-model="replyTxt" cols="50" rows="10" placeholder="reply"></textarea>
-        <button @click="reply">Send</button>
 
     </div>
-    <router-link to="/mail">Back to mail</router-link>
 
     </section>
     `,

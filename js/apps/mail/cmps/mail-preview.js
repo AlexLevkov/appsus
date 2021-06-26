@@ -4,15 +4,29 @@ export default {
     props: ['mail'],
     template: `
         <section class="mail-preview">
-            <label>
-                    <input v-model="mail.isMarked" type="checkbox" >
-            </label>
-                <div @click.stop="readMail" :class="{ notRead: !mail.isRead }" class="mail-list-line">
-                    <article class="mail-title mail-item">{{mail.title}}</article>
-                    <article class="mail-text mail-item">{{mail.mainTxt}}</article>
-                    <article class="mail-time mail-item">{{this.timeSent}}</article>
-                    
+            <div  :class="{ notRead: !mail.isRead }" class="mail-list-line">
+                <div>
+                    <label>
+                        <input v-model="mail.isMarked" type="checkbox" >
+                    </label>
                 </div>
+                <div class="mail-i-had-it" @click.stop="readMail">
+                    <div class="mail-line-contetnt"> 
+                        <div class="mail-title mail-item" >
+                            <article>{{mail.title}}</article>
+                        </div>
+                        <div class="mail-text mail-item">
+                            <article>{{mail.mainTxt}}</article>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="mail-time mail-item">
+                        <article >{{this.timeSent}}</article>
+                    </div>
+                </div>
+            </div>    
+                
         </section>
     `,
     computed: {
