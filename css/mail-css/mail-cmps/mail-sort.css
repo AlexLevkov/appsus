@@ -13,6 +13,9 @@
 }
 .mail-sort-item{
     width: 300px;
-    border-bottom: 1px solid darkgray;
-    text-align: center;    
+    /* border-bottom: 1px solid darkgray; */
+    /* text-align: center;     */
+}
+.mail-sort-item span{
+    color: royalblue;
 }

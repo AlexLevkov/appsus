@@ -4,98 +4,51 @@
 @import "./mail-cmps/mail-list.css";
 @import "./mail-cmps/mail-sort.css";
 @import "./mail-cmps/mail-preview.css";
+@import "./mail-cmps/mail-actions.css";
 
-
-
-.mail-time{
-    width: 150px;
-}
-.mail-title{
-    width: 300px;
-}
-.mail-text{
-    width: 500px;
-}
-.notRead{
-    font-weight: bold;   
-}
-.mail-preview{
-    display: flex;
-}
 
 .mail-main{
-    display: grid;
-    grid-template-columns: 300px 1fr;
-    grid-template-rows: 150px 1fr;
-    grid-template-areas: 
-    "logo search"
-    "actions mail-main-list";
-}
-.mail-list{
-    grid-area: mail-main-list;   
-}
-.mail-main-actionbar{
-    grid-area: actions;
     display: flex;
-    flex-direction: column;
-    align-items: center;    
-    border: 1px solid darkgrey;
-    
 }
 .mail-logo{
-    grid-area: logo;
+    height: 80px;
 }
-.mail-actions{
-    width: 100%;
-    text-align: center;
-    border-bottom: darkgray solid 1px;
-}
-.mail-actions button{
-    border: none;
-    background: none;
-    font-size: 1.2rem;
-    height: 50px;
-    padding: 0;
-    width: 100%;
-    /* border-bottom: solid 1px black; */
-}
-.mail-actions button:hover{
-    cursor: pointer;
-}
-.mail-filter{
-    grid-area: search;
-}
-.mail-search{   
-    display: inline-block;
-    height: 50%;
-    font-size: 1.5rem;
-    vertical-align: middle;   
-}
-.mail-search input{
-    height: 80%;
-    border-radius: 15px;
+.mail-logo img{
+    height: 60px;
     margin-top: 10px;
-    width: 700px;
-    font-size: 1.5rem;   
+    margin-left: 10px;
 }
-.mail-search input:focus{
-    outline: none;
+.mail-compose-link{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 5px;
+    text-decoration: none;
+    font-size: 2rem;
+    color: black;
+    border: 1px solid;
+    border-radius: 2em;
 }
-.mail-list-line{
-    height: 100%;    
+.mail-compose-link:hover{
+    color: dimgrey;
+}
+.mail-main-actionbar{
+    
     display: flex;
-    align-items: center;
-    font-size: 1.2rem;
-}
-
-.mail-toNtitle{
-    display: flex;    
-}
-.mail-toNtitle input{
-    width: 309px;
-    padding: 0;
+    flex-direction: column;
+    align-items: center;       
+    margin-right: 5px;
     
 }
+.mail-user-msg{
+    position: absolute;
+    top: 7vh;
+    right: 50vh;
+    
+}
+
+
+
+
 
 
 

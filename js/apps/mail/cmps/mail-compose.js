@@ -1,19 +1,23 @@
 export default {
     template: `
-<section>
+<section class="mail-compose-container">
     <form class="mail-compose-form" @submit.prevent>
+        <h2>New mail</h2>
         <div class="mail-toNtitle">
-
-            <select name="" id="">
-                <option value="me">Lonely i am so lonely</option>
-            </select>
-            <input v-model="title" type="text" placeholder="Subject">
+          <input class="mail-compose-to" type="text" placeholder="To:">
         </div>
-        <textarea v-model="msgTxt"  cols="60" rows="40" type="text"></textarea>
+        <div>
+            <input class="mail-compose-subject" v-model="title" type="text" placeholder="Subject">
+            
+        </div>
+        
+        <div>            
+            <textarea class="mail-compose-text" v-model="msgTxt"  cols="60" rows="40" type="text"></textarea>
+        </div>
         <div class="mail-compose-actions">
 
-            <button @click="sendMail()">Send</button>
-            <button @click.stop="calcel">Cancel</button>
+            <button class="mail-compose-send" @click="sendMail()"></button>
+            <button class="mail-compose-cancel" @click.stop="calcel"></button>
             
         </div>
         

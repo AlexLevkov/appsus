@@ -1,16 +1,42 @@
-.mail-item{
-    display: inline-block;
-}
+
 .mail-preview{
     height: 50px;
     border-bottom:1px solid darkgray ;
-    display: flex;
-    align-items: center;  
+    width: 1000px;    
 }
 .mail-preview:hover{
 cursor: pointer;
 box-shadow: 0px 0px 10px 2px #5a5858;
 }
-.mail-preview:nth-child(odd){
-    background-color: silver;
+
+
+.notRead{
+    font-weight: bold;   
+}
+
+.mail-list-line{
+    height: 100%;    
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+    width: 1000px;
+    /* justify-content: space-between; */
+}
+.mail-line-contetnt{
+    display: flex;
+    justify-content: space-between;
+}
+.mail-i-had-it{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.mail-title{  
+    margin-left: 30px;
+    
+}
+.mail-text{
+    margin-left: 30px;
+    
 }
