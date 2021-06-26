@@ -79,7 +79,7 @@
     background-repeat: no-repeat;
 }
 .add-video{
-    background-image: url('../../icons/video.png');
+    background-image: url('/../../icons/video.png');
     background-size: contain;
     background-repeat: no-repeat;
 }
