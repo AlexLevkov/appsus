@@ -37,7 +37,7 @@
 }
 
 .paint-select-btn{
-    background-image: url('../../icons/paint-board-and-brush.png');
+    background-image: url('/../../icons/paint-board-and-brush.png');
     background-size: contain;
     background-repeat: no-repeat;
     height: 40px;
@@ -64,17 +64,17 @@
 
 
 .add-note{
-    background-image: url('../../icons/note.png');
+    background-image: url('/../../icons/note.png');
     background-size: contain;
     background-repeat: no-repeat;
 }
 .add-todo{
-    background-image: url('../../icons/list.png');
+    background-image: url('/../../icons/list.png');
     background-size: contain;
     background-repeat: no-repeat;
 }
 .add-img{
-    background-image: url('../../icons/image.png');
+    background-image: url('/../../icons/image.png');
     background-size: contain;
     background-repeat: no-repeat;
 }
