@@ -131,6 +131,12 @@ export default {
 
             if (!this.note.info.title) {
                 alert('Please Enter a Title for the Note')
+                this.note.info.txt = null;
+                this.note.info.title = null;
+                this.note.info.imgUrl = null;
+                this.note.info.videoUrl = null;
+                this.note.info.toDoList = null;
+
                 return
             }
 
