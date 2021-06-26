@@ -71,6 +71,8 @@ function sendMail(txts) {
     }
     return storageService.post(storage_key, mail)
 }
+
+
 function deleteMail(mailId) {
     return storageService.remove(storage_key, mailId)
 }

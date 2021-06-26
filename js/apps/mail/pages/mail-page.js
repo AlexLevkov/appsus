@@ -96,6 +96,7 @@ export default {
                     })
             })
         },
+        
         setfilterBy(filter) {
             console.log(filter)
             this.filterBy = filter

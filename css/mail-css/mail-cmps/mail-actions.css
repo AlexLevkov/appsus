@@ -13,4 +13,5 @@
 }
 .mail-actions button:hover{
     cursor: pointer;
+    background-color: lightblue;
 }

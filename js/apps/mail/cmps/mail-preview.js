@@ -16,7 +16,7 @@ export default {
                             <article>{{mail.title}}</article>
                         </div>
                         <div class="mail-text mail-item">
-                            <article>{{mail.mainTxt}}</article>
+                            <article>{{textToShow}}</article>
                         </div>
                     </div>
                     
@@ -33,6 +33,10 @@ export default {
         timeSent() {
             const fullDate = new Date(this.mail.timeCreated)
             return fullDate.getDate() + '-' + (fullDate.getMonth() + 1) + '-' + fullDate.getFullYear()
+        },
+        textToShow(){
+            const shortTxt = this.mail. mainTxt.split('').slice(0, 99).join('')
+            return shortTxt
         }
     },
     methods:{
