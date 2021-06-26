@@ -4,7 +4,7 @@ export default {
     template: `
     <header class="app-header" >
         <h2>
-            <span>AppSus</span>
+            <span>AppSus1</span>
              <img class="appsus-logo" src="../../../img/logo.png" alt="">
         </h2>
         <nav class="app-nav">
