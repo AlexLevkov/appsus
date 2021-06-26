@@ -2,35 +2,37 @@ import { keepService } from '../services/keep-service.js'
 
 export default {
     template: `
-    <section class="keep-create-note">
+    <section >
+
+    <div class="keep-create-note">
 
         <form class="keep-notes-form" @submit.prevent="onSubmit">
         
 
-            <input :style="{backgroundColor:note.style.backgroundColor}" 
+            <input :style="{backgroundColor:note.style.backgroundColor}" class="keep-input-title"
             type="text" placeholder="Enter Note Title" v-model="note.info.title">
 
-            <input v-if="isAddImg" :style="{backgroundColor:note.style.backgroundColor}" 
+            <input v-if="isAddImg" :style="{backgroundColor:note.style.backgroundColor}" class="keep-input-img"
             type="text" placeholder="Enter Img Url" v-model="note.info.imgUrl">
             
-            <input v-if="isAddVideo" :style="{backgroundColor:note.style.backgroundColor}" 
+            <input v-if="isAddVideo" :style="{backgroundColor:note.style.backgroundColor}" class="keep-input-video"
             type="text" placeholder="Enter Youtube Url" v-model="note.info.videoUrl">
 
             <textarea  
-            v-if="isAddNote" :style="{backgroundColor:note.style.backgroundColor}" 
+            v-if="isAddNote" :style="{backgroundColor:note.style.backgroundColor}"  class="keep-input-title"
             placeholder="Enter Note Text" 
             v-model="note.info.txt" 
             cols="20" rows="5">
             </textarea>
 
             <textarea  
-            v-if="isAddToDo" :style="{backgroundColor:note.style.backgroundColor}" 
+            v-if="isAddToDo" :style="{backgroundColor:note.style.backgroundColor}" class="keep-input-to-do"
             placeholder="Enter To Do List Separated With Commas" 
             v-model="note.info.txt" 
             cols="20" rows="5">
             </textarea>
 
-            <button ref="subbmitBtn">Add Note</button>
+            <button class="keep-subbmit-btn" ref="subbmitBtn">Add Note</button>
 
          </form>
          
@@ -63,7 +65,8 @@ export default {
             <button title="add video" class="add-video create-note-btn" @click="addVideo"></button>
         </div>
      
-        <!-- {{note}} -->
+        </div>
+      
     </section>
     `,
     data() {

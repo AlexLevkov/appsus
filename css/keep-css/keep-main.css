@@ -16,10 +16,12 @@
 
 
 .notes-container{
-    margin-top: 30px;
+    margin: 20px 300px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: flex-start;
+    
 }
 
 .keep-txt-note{

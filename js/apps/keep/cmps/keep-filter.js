@@ -4,7 +4,7 @@ export default {
     <section class="keep-filter">
         <div class="keep-filter-box">
             <input class="keep-input-filter" placeholder="search" v-model="filter.text" type="search" @input="search">
-            <select v-model="filter.type" @input="search">
+            <select class="keep-select-filter" v-model="filter.type" @input="search">
                 <option value="">All</option>
                 <option value="keep-note-txt">Text</option>
                 <option value="keep-note-img">Image</option>

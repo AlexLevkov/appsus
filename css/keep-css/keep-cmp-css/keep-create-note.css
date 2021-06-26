@@ -1,5 +1,17 @@
-/* helper for all create btns */
+.keep-subbmit-btn{
+    margin-top: 30px;
+    background-color: lightblue;
+  
+    align-self: center;
+    padding: 10px;
+    font-size: 25px;
+    border-radius: 2em;
+    font-weight: bold;
+    background-color: lightblue;
+    border:none
+}
 
+/* helper for all create btns */
 .create-note-btn{
     height: 40px;
     width: 40px;
@@ -40,7 +52,7 @@
     margin: 5px;
     display: flex;
     flex-direction: column;
-    width: 500px;
+    width: 1000px;
 }
 
 
@@ -63,4 +75,15 @@
     background-image: url('/icons/video.png');
     background-size: contain;
     background-repeat: no-repeat;
+}
+
+.keep-input-to-do,
+.keep-input-video,
+.keep-input-img,
+.keep-input-text,
+.keep-input-title{
+    font-size: 20px;
+    border: none;
+    outline: none;
+    margin-top: 5px;
 }
