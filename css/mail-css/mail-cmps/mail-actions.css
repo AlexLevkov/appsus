@@ -1,0 +1,17 @@
+.mail-actions{
+    width: 100%;
+    text-align: center;
+    /* border-bottom: darkgray solid 1px; */
+}
+.mail-actions button{
+    border: none;
+    background: none;
+    font-size: 1.2rem;
+    height: 50px;
+    padding: 0;
+    width: 100%;
+}
+.mail-actions button:hover{
+    cursor: pointer;
+    background-color: lightblue;
+}
