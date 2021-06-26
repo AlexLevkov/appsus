@@ -1,18 +1,19 @@
-@import "./keep-cmp-css/keep-note-cmp.css";
+@import "./keep-cmp-css/keep-create-note.css";
+@import "./keep-cmp-css/keep-edit-note.css";
+@import '/css/keep-css/keep-cmp-css/keep-filter.css';
+@import '/css/keep-css/keep-cmp-css/keep-note-img.css';
+@import '/css/keep-css/keep-cmp-css/keep-note-to-do.css';
+@import '/css/keep-css/keep-cmp-css/keep-note-txt.css';
+@import '/css/keep-css/keep-cmp-css/keep-note-video.css';
+@import '/css/keep-css/keep-cmp-css/keep-notes-list.css';
+@import '/css/keep-css/pages/keep-page.css';
+
+
 
 .keep-task-done{
     text-decoration: line-through;
 }
 
-button{
-    font-size: large;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-button:hover{
-    background-color: lightyellow;
-    cursor: pointer;
-}
 
 .notes-container{
     margin-top: 30px;
@@ -30,35 +31,13 @@ button:hover{
 
 }
 
-.paint{
-height: 20px;
-width: 20px;
-}
-
-
-.keep-notes-form{
-    display: flex;
-    flex-direction: column;
-    width: 200px;
-}
-
-.keep-create-note{
-    display:flex;
-    justify-content: center;
-    height: 100px;
-}
 
 
 
 
-.edit-container{
-    display: flex;
-    flex-direction: column;
-    width: 300px;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
 
-}
+
+
+
+
 

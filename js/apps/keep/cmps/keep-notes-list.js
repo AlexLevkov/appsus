@@ -8,11 +8,13 @@ export default {
     template: `
         <section >
             <div class="notes-container">
-                <div 
+                <div class="keep-note-container"
                     v-for="note in notes" >
-                    <button title="remove" @click="removeNote(note)">❌</button>
-                    <button title="edit" @click="editNote(note)">🧰</button>
-                    <button title="pin" @click="pinNote(note)">📌</button>
+                        <div class="keep-note-edit-btns">
+                            <button title="remove" @click="removeNote(note)">❌</button>
+                            <button title="edit" @click="editNote(note)">🧰</button>
+                            <button title="pin" @click="pinNote(note)">📌</button>
+                        </div>
                     <component :is="note.type" :note="note" ></component> 
                 </div> 
             </div>

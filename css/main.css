@@ -4,10 +4,19 @@
 
 *{
     box-sizing: border-box;
+    font-family: david;
+}
+
+button{
+    font-family: david;
+}
+
+button:hover{
+    cursor: pointer;
 }
 
 body{
-    background-color:lightgray;
+    background-color:whitesmoke;
     margin:0;
     padding: 0;      
 }
@@ -17,7 +26,22 @@ h1,h2,h3,h4,h5,h6,p{
     padding: 0;
 }
 
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.hidden{
+    display: none;
+}
+
 /* MAIN APP */
+
+.appsus-logo{
+    height: 30px;
+    width: 30px;
+}
 
 .app-main-container{
     display:flex;
@@ -29,16 +53,26 @@ height: 7vh;
 display: flex;
 justify-content: space-between;
 border-bottom: 1px black solid;
+background-color: lightblue;
 }
 
 .app-main{
     flex:1;
     min-height: 86vh;
+
+}
+
+.app-main-home{
+    background-image: url('/img/background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
 }
 
 .app-footer{
     height: 7vh;
     text-align: center;
+    background-color: lightblue;
     }
     
 

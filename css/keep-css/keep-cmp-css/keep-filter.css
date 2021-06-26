@@ -1,0 +1,17 @@
+.keep-filter{
+
+    margin-top: 5px;
+
+    display: flex;
+    justify-content: center;
+}
+
+.keep-filter-box{
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.keep-input-filter{
+    width: 80%;
+}

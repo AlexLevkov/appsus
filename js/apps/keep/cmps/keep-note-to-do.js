@@ -18,7 +18,7 @@ export default {
 <ul v-for="task in note.info.toDoList">
     <li :class="{'keep-task-done': task.isMarked}" @click="clicked">
         <input v-model="task.isMarked" type="checkbox" name="" id="">
-        {{task.toDo}}
+        <span>{{task.toDo}}</span>
     </li>
 </ul>
 

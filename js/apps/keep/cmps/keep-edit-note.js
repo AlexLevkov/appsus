@@ -1,4 +1,5 @@
 import { keepService } from '../services/keep-service.js'
+import { eventBus } from "./keep-event-bus.js"
 
 export default {
     template: `
@@ -16,8 +17,6 @@ export default {
             'text-align': 'left',
             'backgroundColor': note.style.backgroundColor,
             }" 
-            name=""
-            id=""
             cols="30"
             rows="1">
   
@@ -72,8 +71,28 @@ export default {
             id=""
              >
          
+             <!-- v-model="note.info.toDoList[0].toDo" -->
             
         </textarea>
+
+        <section v-if="note.info.toDoList" v-for="task in note.info.toDoList">
+            <textarea 
+                v-model="task.toDo"
+                :style="{padding:'5px'
+                ,width:'auto'
+                ,height:'auto'
+                ,'white-space':'pre-line',
+                'text-align': 'left',
+                'backgroundColor': note.style.backgroundColor,
+                'display': 'inherit'
+                }" 
+                cols="38"
+                rows="1">
+                >
+            </textarea>
+
+        </section>
+
 
 
         </div>
@@ -95,7 +114,7 @@ export default {
         this.noteId = noteId
         keepService.get(noteId).then((note) => {
             this.note = note
-
+            eventBus.$emit('toggleBlackScreen')
         })
     },
     methods: {

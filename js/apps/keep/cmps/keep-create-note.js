@@ -5,25 +5,27 @@ export default {
     <section class="keep-create-note">
 
         <form class="keep-notes-form" @submit.prevent="onSubmit">
+        
 
-            <input type="text" placeholder="Enter Note Title" v-model="note.info.title">
+            <input :style="{backgroundColor:note.style.backgroundColor}" 
+            type="text" placeholder="Enter Note Title" v-model="note.info.title">
 
-            <input v-if="isAddImg" 
+            <input v-if="isAddImg" :style="{backgroundColor:note.style.backgroundColor}" 
             type="text" placeholder="Enter Img Url" v-model="note.info.imgUrl">
             
-            <input v-if="isAddVideo" 
+            <input v-if="isAddVideo" :style="{backgroundColor:note.style.backgroundColor}" 
             type="text" placeholder="Enter Youtube Url" v-model="note.info.videoUrl">
 
             <textarea  
-            v-if="isAddNote"
+            v-if="isAddNote" :style="{backgroundColor:note.style.backgroundColor}" 
             placeholder="Enter Note Text" 
             v-model="note.info.txt" 
             cols="20" rows="5">
             </textarea>
 
             <textarea  
-            v-if="isAddToDo"
-            placeholder="Enter To Do List" 
+            v-if="isAddToDo" :style="{backgroundColor:note.style.backgroundColor}" 
+            placeholder="Enter To Do List Separated With Commas" 
             v-model="note.info.txt" 
             cols="20" rows="5">
             </textarea>
@@ -32,10 +34,15 @@ export default {
 
          </form>
          
-        <button>
-            <img class="paint" src="./icons/paint-board-and-brush.png">
+  
+
+        <div class="create-note-btns">
+
+        <button class='paint-select-btn create-note-btn'>
+            <!-- <img class="paint-icon" src="./icons/paint-board-and-brush.png"> -->
 
             <select 
+            class="paint-select"
             :style="{color:note.style.backgroundColor}"
             v-model="note.style.backgroundColor" 
             name="colors" 
@@ -46,13 +53,16 @@ export default {
             <option :style="{color:'lightgrey'}" value="lightgrey">⬤</option>
             <option :style="{color:'lightpink'}" value="lightpink">⬤</option>
             <option :style="{color:'blanchedalmond'}" value="blanchedalmond">⬤</option>
+            <option :style="{color:'white'}" value="white">⬤</option>
             </select>
         </button>
 
-        <button @click="addNote" >Add Note</button>
-        <button @click="addTodo" >Add To Do List</button>
-        <button @click="addImg" >Add Image</button>
-        <button @click="addVideo" >Add Video</button>
+            <button title="add note" class="add-note create-note-btn" @click="addNote"></button>
+            <button title="add to do list" class="add-todo create-note-btn" @click="addTodo"></button>
+            <button title="add image" class="add-img create-note-btn" @click="addImg"></button>
+            <button title="add video" class="add-video create-note-btn" @click="addVideo"></button>
+        </div>
+     
         <!-- {{note}} -->
     </section>
     `,
@@ -71,7 +81,7 @@ export default {
                 },
                 style:
                 {
-                    backgroundColor: 'blanchedalmond'
+                    backgroundColor: 'white'
                 },
                 isPinned: false
 
@@ -108,6 +118,7 @@ export default {
             // copy was made to prevent sending a null text due to async
             this.note.info.txt = null;
             this.note.info.title = null;
+
 
 
         },

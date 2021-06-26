@@ -3,7 +3,8 @@
 export default {
     template: `
     <header class="app-header" >
-        <h2>APSUS ♞</h2>
+        <h2>APSUS <img class="appsus-logo" src="../img/logo.png" alt="">
+        </h2>
         <nav class="app-nav">
             <router-link to="/">Home</router-link> 
             <router-link to="/mail" >Mail</router-link>
@@ -13,4 +14,6 @@ export default {
     </header>
     `
 }
+
+
 

@@ -1,0 +1,8 @@
+.keep-black-screen{
+    background-color: black;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    opacity: 0.6;
+    z-index: 2;
+}
