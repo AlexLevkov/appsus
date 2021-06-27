@@ -25,6 +25,7 @@ export default {
     methods: {
         search() {
             console.log('search');
+            console.log('search');
             this.$emit('filterBy', this.filter)
         }
     }
