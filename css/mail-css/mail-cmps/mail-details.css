@@ -60,7 +60,7 @@
 }  
 
 .mail-details-reply-btn{
-    background-image: url('../../../icons/send.png');
+    background-image: url('/icons/send.png');
     background-size: contain;
     background-repeat: no-repeat;
     height: 40px;
@@ -69,7 +69,7 @@
 }
 
 .mail-details-cancle-btn{
-    background-image: url('../../../icons/cancle.png');
+    background-image: url('/icons/cancle.png');
     background-size: contain;
     background-repeat: no-repeat;
     height: 40px;

@@ -70,7 +70,8 @@ align-items: center;
 }
 .app-header nav{
     padding-right: 15px;
-    width: 300px;
+    gap: 15px;
+    /* margin: 10px; */
     display: flex;
     justify-content: space-between;
 }
