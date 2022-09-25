@@ -5,7 +5,7 @@ export default {
     <header class="app-header" >
     <router-link class='app-link' to="/">
         <h2>
-            <img class="appsus-logo" src="../img/logo.png" alt="">
+            <img class="appsus-logo" src="./../img/logo.png" alt="">
             <span class="appsus-txt" >AppSus</span>
         </h2>
     </router-link> 
