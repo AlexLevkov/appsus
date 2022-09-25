@@ -9,15 +9,22 @@ export default {
 
         <form id="my-form" class="keep-notes-form" @submit.prevent="onSubmit">
         
-
             <input :style="{backgroundColor:note.style.backgroundColor}" class="keep-input-title"
             type="text" placeholder="Enter Note Title" v-model="note.info.title">
 
-            <input v-if="isAddImg" :style="{backgroundColor:note.style.backgroundColor}" class="keep-input-img"
-            type="text" placeholder="Enter Img Url" v-model="note.info.imgUrl">
-            
-            <input v-if="isAddVideo" :style="{backgroundColor:note.style.backgroundColor}" class="keep-input-video"
-            type="text" placeholder="Enter Youtube Url" v-model="note.info.videoUrl">
+            <textarea  
+            v-if="isAddImg" :style="{backgroundColor:note.style.backgroundColor}"  class="keep-input-img"
+            placeholder="Enter Img Url" 
+            v-model="note.info.imgUrl" 
+            cols="20" rows="5">
+            </textarea>
+
+            <textarea  
+            v-if="isAddVideo" :style="{backgroundColor:note.style.backgroundColor}"  class="keep-input-video"
+            placeholder="Enter Youtube Url" 
+            v-model="note.info.videoUrl" 
+            cols="20" rows="5">
+            </textarea>
 
             <textarea  
             v-if="isAddNote" :style="{backgroundColor:note.style.backgroundColor}"  class="keep-input-title"
@@ -33,21 +40,13 @@ export default {
             cols="20" rows="5">
             </textarea>
 
-      
-
          </form>
-         
-         
 
         <div class="create-note-btns">
 
             <div class="submit-btn-container">
                    <button class="keep-subbmit-btn" form="my-form" ref="subbmitBtn">Add Note</button>
-            </div>
-    
-            <div class="keep-design-btns">
-
-                <button class='paint-select-btn create-note-btn'>
+                   <button class='paint-select-btn create-note-btn'>
                             <!-- <img class="paint-icon" src="./icons/paint-board-and-brush.png"> -->
 
                             <select 
@@ -64,18 +63,18 @@ export default {
                             <option :style="{color:'blanchedalmond'}" value="blanchedalmond">⬤</option>
                             <option :style="{color:'white'}" value="white">⬤</option>
                             </select>
-                        </button>
+                    </button>
+            </div>
+    
+            <div class="keep-design-btns">
 
                             <button title="add note" class="add-note create-note-btn" @click="addNote"></button>
                             <button title="add to do list" class="add-todo create-note-btn" @click="addTodo"></button>
                             <button title="add image" class="add-img create-note-btn" @click="addImg"></button>
                             <button title="add video" class="add-video create-note-btn" @click="addVideo"></button>
 
-
             </div>
-
     
-
         </div>
      
     </div>
@@ -136,7 +135,6 @@ export default {
                 this.note.info.imgUrl = null;
                 this.note.info.videoUrl = null;
                 this.note.info.toDoList = null;
-
                 return
             }
 
@@ -148,8 +146,7 @@ export default {
             this.note.info.imgUrl = null;
             this.note.info.videoUrl = null;
             this.note.info.toDoList = null;
-
-
+            this.note.style.backgroundColor = 'white'
 
 
         },

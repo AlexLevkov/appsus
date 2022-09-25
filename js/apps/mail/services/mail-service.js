@@ -5,7 +5,8 @@ export const mailService = {
     deleteMail,
     getById,
     replyToMail,
-    markAsRead
+    markAsRead,
+    updateMail
 };
 
 
@@ -16,29 +17,69 @@ function _creatMails() {
         {
             id: storageService.makeId(),
             timeCreated: Date.now(),
-            title: 'Welcome new user',
-            mainTxt: 'you should get familier with...',
-            isRead: false,
+            author: 'Jobs@google.com',
+            title: 'Come work with us!',
+            mainTxt: 'We love your resume!',
+            isRead: true,
             isMarked: false,
-            isSent: false
+            isSent: false,
+            isFav: true
         },
         {
             id: storageService.makeId(),
             timeCreated: Date.now(),
+            author: 'Yosi@gmail.com',
+            title: 'New Startup idea',
+            mainTxt: 'Would you like to join?',
+            isRead: true,
+            isMarked: false,
+            isSent: false,
+            isFav: true
+        },
+        {
+            id: storageService.makeId(),
+            timeCreated: Date.now(),
+            author: 'Sales@tours.com',
+            title: 'A trip to the Caribbean',
+            mainTxt: 'One life opportunity, don\'t miss it!',
+            isRead: false,
+            isMarked: false,
+            isSent: false,
+            isFav: false
+        },
+        {
+            id: storageService.makeId(),
+            timeCreated: Date.now(),
+            author: 'Admin@AppSus.com',
+            title: 'Welcome new user',
+            mainTxt: 'you should get familier with...',
+            isRead: true,
+            isMarked: false,
+            isSent: false,
+            isFav: false
+        },
+        {
+            id: storageService.makeId(),
+            timeCreated: Date.now(),
+            author: 'Admin@AppSus.com',
             title: 'Rules and policy',
             mainTxt: 'you read this first',
             isRead: false,
             isMarked: false,
-            isSent: false
+            isSent: false,
+            isFav: true
+
         },
         {
             id: storageService.makeId(),
             timeCreated: Date.now(),
+            author: 'Admin@AppSus.com',
             title: 'Welcome to AppSus mail system',
             mainTxt: 'you should try the Keep App aswell',
-            isRead: false,
+            isRead: true,
             isMarked: false,
-            isSent: false
+            isSent: false,
+            isFav: false
         },
 
     ]
@@ -65,7 +106,8 @@ function sendMail(txts) {
         timeCreated: Date.now(),
         title: txts.title,
         mainTxt: txts.msgTxt,
-        isRed: false,
+        author: txts.author,
+        isRead: false,
         isMarked: false,
         isSent: true
     }
@@ -74,6 +116,7 @@ function sendMail(txts) {
 
 
 function deleteMail(mailId) {
+    console.log('mailId:', mailId)
     return storageService.remove(storage_key, mailId)
 }
 
@@ -101,7 +144,11 @@ function markAsRead(mailId) {
         mail.isRead = true
         storageService.put(storage_key, mail)
     })
+}
 
-
-
+function updateMail(mailId, newMail) {
+    return getById(mailId).then((mail) => {
+        mail = newMail
+        storageService.put(storage_key, mail)
+    })
 }

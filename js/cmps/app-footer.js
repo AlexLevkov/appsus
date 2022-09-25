@@ -1,7 +1,8 @@
 export default {
     template: `
     <footer class="app-footer">
-        Copyrights Alex & Alex (C)
+        <h3>Copyrights AppSus 2022 ©</h3>
+     
     </footer>
     `
 }

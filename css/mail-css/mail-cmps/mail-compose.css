@@ -1,12 +1,13 @@
 
 
 .mail-compose-form{
+    /* height: 300px; */
     position: absolute;
     bottom: 7%;
-    right: 10%;
+    right: 0%;
     display: flex;
     flex-direction: column;
-    background-color: #525050;
+    background-color: black;
     padding: 2px;
     border-radius: 5px;
 }
@@ -35,13 +36,15 @@
 .mail-compose-text{
     outline: none;
     border: none;
+    height: 300px;
 }
 .mail-compose-actions{
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 .mail-compose-send{
-    background-image: url('/icons/send.png');
+    /* background-image: url('/icons/send.png'); */
     background-size: contain;
     background-repeat: no-repeat;
     height: 40px;
@@ -56,3 +59,11 @@
 }
 
 
+.mail-compose-recipient{
+    background-color: white;
+    border-bottom: 1px solid lightgrey;
+    padding-top: 7px;
+    color: slategrey;
+    font-size: small;
+   
+}

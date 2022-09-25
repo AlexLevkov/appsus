@@ -6,11 +6,15 @@ export default {
     <section v-if="mail" class="app-main">
         <div class="mail-details-container">
             <h2 class="mail-details-header">{{mail.title}}</h2>
+            <p>{{mailTime(mail.timeCreated)}}</p>
+            <br/>
             <p class="mail-details-text">{{mail.mainTxt}}</p>
             <article class="mail-details-text" v-if="mail.replies">
                 <div v-for="reply in mail.replies" >
                     <hr />
-                    <p>{{timeSent}}</p>
+                    <!-- <p>{{timeSent}}</p> -->
+                    <br />
+                    <p>{{mailTime(reply.timeReplied)}}</p>
                     <br />
                     <p>{{reply.txt}}</p>
                     
@@ -25,8 +29,8 @@ export default {
         <h3>Your Reply</h3>
         <textarea v-model="replyTxt" cols="50" rows="10" placeholder="reply"></textarea>
         <div class="mail-replay-btns">
-            <button class="mail-details-reply-btn" @click="reply"></button>
-            <button class="mail-details-cancle-btn" @click="openReply"></button>
+        <button class="mail-compose-link" @click="reply">Send</button>
+        <button class="mail-details-cancle-btn" @click="openReply"></button>
 
         </div>
 
@@ -52,6 +56,9 @@ export default {
                 eventBus.$emit('show-msg', 'Reply Sent')
                 this.$router.push('/mail')
             })
+        },
+        mailTime(time) {
+            return new Date(time).toLocaleString()
         }
     },
     computed: {
@@ -61,7 +68,8 @@ export default {
                 (fullDate.getMonth() + 1) + '-' +
                 fullDate.getFullYear() + '     ' +
                 fullDate.getHours() + ':' + fullDate.getMinutes()
-        }
+        },
+
     },
     created() {
         const { mailId } = this.$route.params;
@@ -71,9 +79,5 @@ export default {
                 mailService.markAsRead(mail.id)
 
             })
-
-
-
-
     }
 }

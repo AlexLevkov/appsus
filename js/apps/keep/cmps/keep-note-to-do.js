@@ -22,7 +22,8 @@ export default {
     </li>
 </ul>
 
-<button class="keep-remove-task" @click="removeTask"></button>
+<button class="keep-remove-task" @click="removeTask">
+       <i class="fa-solid fa-trash"></i></button>
 
 
      

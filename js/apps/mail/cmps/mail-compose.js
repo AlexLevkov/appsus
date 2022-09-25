@@ -4,7 +4,11 @@ export default {
     <form class="mail-compose-form" @submit.prevent>
         <h2>New mail</h2>
         <div class="mail-toNtitle">
-          <input class="mail-compose-to" type="text" placeholder="To:">
+            <span class="mail-compose-recipient">To:</span>
+
+
+            
+          <input class="mail-compose-to" type="text">
         </div>
         <div>
             <input class="mail-compose-subject" v-model="title" type="text" placeholder="Subject">
@@ -16,8 +20,8 @@ export default {
         </div>
         <div class="mail-compose-actions">
 
-            <button class="mail-compose-send" @click="sendMail()"></button>
-            <button class="mail-compose-cancel" @click.stop="calcel"></button>
+            <button class="mail-compose-link" @click="sendMail()">Send</button>
+            <button class="mail-compose-cancel" @click.stop="cancel"></button>
             
         </div>
         
@@ -34,15 +38,16 @@ export default {
         sendMail() {
             const mail = {
                 title: this.title,
-                msgTxt: this.msgTxt
+                msgTxt: this.msgTxt,
+                author: "Alex@AppSus.com"
             }
             this.$emit('sent', mail)
             this.title = null
-            this.msgTxt = null            
+            this.msgTxt = null
             this.$router.push('/mail')
 
         },
-        calcel(){
+        cancel() {
             this.$router.push('/mail')
         }
     }

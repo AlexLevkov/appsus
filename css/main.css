@@ -39,8 +39,19 @@ ul {
 /* MAIN APP */
 
 .appsus-logo{
-    height: 50px;
-   
+    height: 6.5vh;
+      
+}
+
+.appsus-txt{
+    padding-left: 10px;
+    font-size: 4vh;
+
+}
+
+.app-link{
+    text-decoration: none;
+    color: inherit;
 }
 
 .app-main-container{
@@ -59,7 +70,7 @@ align-items: center;
 }
 .app-header h2{
     padding: 20px;
-    font-size: 25px;
+    font-size: 4vh;
     font-weight: bold;
     display: flex;
     align-items: center;
@@ -77,7 +88,7 @@ align-items: center;
 }
 .app-header nav a{
     text-decoration: none;
-    font-size: 25px;
+    font-size: 4vh;
     font-weight: bold;
     color: black;
 }

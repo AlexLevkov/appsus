@@ -6,9 +6,8 @@ export default {
     <section>
         
         <div v-if="note" class="edit-container">
-            <button @click='FinishEdit' >Done</button>
+   
         <textarea 
-            
             v-model="note.info.title"
             :style="{padding:'5px'
             ,width:'auto'
@@ -19,8 +18,7 @@ export default {
             }" 
             cols="30"
             rows="1">
-  
-        </textarea>
+          </textarea>
 
         <textarea 
             v-if="note.info.txt"
@@ -70,9 +68,7 @@ export default {
             name=""
             id=""
              >
-         
-             <!-- v-model="note.info.toDoList[0].toDo" -->
-            
+             
         </textarea>
 
         <section v-if="note.info.toDoList" v-for="task in note.info.toDoList">
@@ -90,11 +86,30 @@ export default {
                 rows="1">
                 >
             </textarea>
-
         </section>
+        
+        <div class="keep-note-editor-container">
+        <button class="keep-subbmit-btn" @click='FinishEdit' >Done</button>
+        <button class='paint-select-btn create-note-btn'>
+                            <!-- <img class="paint-icon" src="./icons/paint-board-and-brush.png"> -->
 
-
-
+                            <select 
+                            class="paint-select"
+                            :style="{color:note.style.backgroundColor}"
+                            v-model="note.style.backgroundColor" 
+                            name="colors" 
+                            id="colors">
+                            
+                            <option :style="{color:'lightblue'}" value="lightblue">⬤</option>
+                            <option :style="{color:'lightgreen'}" value="lightgreen">⬤</option>
+                            <option :style="{color:'lightgrey'}" value="lightgrey">⬤</option>
+                            <option :style="{color:'lightpink'}" value="lightpink">⬤</option>
+                            <option :style="{color:'blanchedalmond'}" value="blanchedalmond">⬤</option>
+                            <option :style="{color:'white'}" value="white">⬤</option>
+                            </select>
+                    </button>
+        </div>
+  
         </div>
         
 
@@ -114,8 +129,10 @@ export default {
         this.noteId = noteId
         keepService.get(noteId).then((note) => {
             this.note = note
-            eventBus.$emit('toggleBlackScreen')
         })
+        const backGroundEl = document.querySelector('.keep-background')
+        backGroundEl.classList.add('keep-black-screen');
+
     },
     methods: {
         FinishEdit() {
@@ -126,7 +143,8 @@ export default {
             })
             // console.log('note', this.note);
             // keepService.put(this.noteId)
-
+            const backGroundEl = document.querySelector('.keep-background')
+            backGroundEl.classList.remove('keep-black-screen');
 
         }
     },

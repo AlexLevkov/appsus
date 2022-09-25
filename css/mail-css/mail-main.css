@@ -15,8 +15,8 @@
 }
 .mail-logo img{
     height: 60px;
-    margin-top: 10px;
-    margin-left: 10px;
+    margin: 20px auto;
+    display: flex;
 }
 .mail-compose-link{
     margin-top: 10px;
@@ -29,9 +29,7 @@
     font-weight: bold;
     background-color: lightblue;
 }
-.mail-compose-link:hover{
-    color: dimgrey;
-}
+
 .mail-main-actionbar{
     
     display: flex;
@@ -46,13 +44,15 @@
     left: 50px;
     height: 50px;
     width: 150px;
-    
-    
+}
+
+.mail-main-container{
+    width: 80%;
 }
 
 
-
-
-
+.mail-main-side-bar{
+width: 15%;
+}
 
 

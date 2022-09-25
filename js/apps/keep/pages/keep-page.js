@@ -8,6 +8,7 @@ import { eventBus } from '../cmps/keep-event-bus.js'
 export default {
     template: `
     <section class="app-main">
+    <div class="keep-background"></div>
     <keep-filter @filterBy="setFilter" ></keep-filter>
     <keep-create-note @submit="addNote" ></keep-create-note>
     <keep-notes-list :notes="pinnedNotesToShow" @removeNote="removeNote" @pinNote="pinNote"></keep-notes-list>

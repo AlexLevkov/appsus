@@ -1,12 +1,12 @@
 .keep-subbmit-btn{
     background-color: lightblue;
-      align-self: start;
+    align-self: start;
     padding: 10px;
     font-size: 25px;
     border-radius: 2em;
     font-weight: bold;
-    background-color: lightblue;
-    border:none
+    border:none;
+    margin-top: 5px;
 }
 
 /* helper for all create btns */
@@ -20,11 +20,13 @@
 }
 
 .create-note-btns{
-    margin: 10px;
-    width: 1000px;
-    display: flex;
+      display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-direction: column-reverse;
+    margin: 10px;
+    padding: 10px;
+    gap: 10px;
 }
 
 .paint-select{
@@ -52,14 +54,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    flex-direction: row;
+    /* margin: 10px 200px 0px; */
 }
 
 .keep-notes-form{
     margin: 5px;
     display: flex;
     flex-direction: column;
-    width: 1000px;
+    width: 30%;
 }
 
 
@@ -93,4 +96,5 @@
     border: lightgray 1px solid;
     outline: none;
     margin-top: 5px;
+    /* width: 50%; */
 }

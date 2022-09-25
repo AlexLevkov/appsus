@@ -95,11 +95,11 @@ var gNotes = [
         isPinned: false,
         info: {
             txt: "",
-            imgUrl: 'https://image.flaticon.com/icons/png/128/753/753305.png',
-            title: 'Flower',
+            imgUrl: 'https://cdn.pixabay.com/photo/2016/08/28/23/24/sunflower-1627193_1280.jpg',
+            title: 'Sunflower',
         },
         style: {
-            backgroundColor: 'white'
+            backgroundColor: 'blanchedalmond'
         }
     },
     {
@@ -120,17 +120,40 @@ var gNotes = [
         }
     },
     {
-        id: '45g5g45',
+        "type": "keep-note-video",
+        "info": {
+            "title": "Vue Course",
+            "txt": "https://www.youtube.com/watch?v=qZXt1Aom3Cs",
+            "imgUrl": null,
+            "videoUrl": "https://www.youtube.com/embed/qZXt1Aom3Cs",
+            "toDoList": null,
+            "isMarked": false
+        },
+        "style": {
+            "backgroundColor": "lightgreen"
+        },
+        "isPinned": true,
+        "id": "bTIsS"
+    },
+    {
+        id: '4315134t34',
 
-        type: "keep-note-video",
+        type: "keep-note-to-do",
         isPinned: true,
         info: {
             txt: null,
-            title: 'Great Series',
-            videoUrl: 'https://www.youtube.com/embed/CDrieqwSdgI'
+            title: 'Web Development',
+
+            // , Learn React, Learn Angular'
+
+            toDoList: [
+                { toDo: 'Learn HTML', isMarked: true },
+                { toDo: 'Learn CSS', isMarked: false },
+                { toDo: 'Learn JS', isMarked: false },
+            ]
         },
         style: {
-            backgroundColor: 'lightblue'
+            backgroundColor: 'lightpink'
         }
     },
     {
@@ -145,7 +168,7 @@ var gNotes = [
             // , Learn React, Learn Angular'
 
             toDoList: [
-                { toDo: 'Learn Vue', isMarked: true },
+                { toDo: 'Learn Vue', isMarked: false },
                 { toDo: 'Learn React', isMarked: false },
                 { toDo: 'Learn Angular', isMarked: false },
             ]

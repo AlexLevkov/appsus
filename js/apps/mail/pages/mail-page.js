@@ -1,6 +1,6 @@
 import { mailService } from '../services/mail-service.js';
 import mailList from '../cmps/mail-list.js'
-import mailActions from '../cmps/mail-actions.js'
+
 import mailFilter from '../cmps/mail-filter.js';
 import mailSort from '../cmps/mail-sort.js'
 import { eventBus } from '../services/mail-eventBus.js';
@@ -14,15 +14,14 @@ export default {
             <div class="mail-main-actionbar">
                 <router-link class="mail-compose-link" to="/mail/compose">Compose</router-link>            
                 <mail-sort v-if="mails" :mails="mails" @sortBy="setSortBy" />
-                <mail-actions @removeMail="deleteMail" @sent="sendMail"  />
             </div>
         </div>
         <div class="mail-main-container">
-            <mail-filter @filtered="setfilterBy"/>
-            <mail-list  v-if="mails" :mails="mailsToShow" />
+            <mail-filter @deleteMails="deleteMails" @filtered="setfilterBy"/>
+            <mail-list @mailDelete="mailDelete"  v-if="mails" :mails="mailsToShow" />
         </div> 
+        <router-view @sent="sendMail"></router-view>    
 
-        <router-view @sent="sendMail"></router-view>        
     </section>
     `,
     data() {
@@ -35,14 +34,24 @@ export default {
     },
     computed: {
         mailsToShow() {
-            if (!this.filterBy && this.sortBy === 'inBox') return this.mails
+            if (!this.filterBy && this.sortBy === 'inBox')
+                return this.mails.filter((mail) => {
+                    return !mail.isSent
+                })
             if (!this.filterBy && this.sortBy === 'sent') {
                 return this.mails.filter((mail) => {
                     return mail.isSent
                 })
             }
+            if (!this.filterBy && this.sortBy === 'fav') {
+                return this.mails.filter((mail) => {
+                    return mail.isFav
+                })
+            }
             let sortedMails;
-            if (this.sortBy === 'inBox') sortedMails = this.mails
+            if (this.sortBy === 'inBox') sortedMails = this.mails.filter((mail) => {
+                return !mail.isSent
+            })
             if (this.sortBy === 'sent') {
                 sortedMails = this.mails.filter((mail) => {
                     return mail.isSent
@@ -59,7 +68,7 @@ export default {
             }
             if (!this.filterBy.isRead) return filterdByTitle
             let filterdByRead = filterdByTitle.filter(mail => {
-                return !mail.isRead
+                return !mail.isRead && !mail.isSent
             })
             return filterdByRead
 
@@ -79,32 +88,54 @@ export default {
             })
 
         },
+        mailDelete(mailId) {
+            console.log('mailId:', mailId)
+            mailService.deleteMail(mailId)
+                .then(() => mailService.query())
+                .then(mails => this.mails = mails
+                )
 
+        },
         getMarkedMails() {
             return this.mails.filter((mail) => {
                 return mail.isMarked
             })
         },
-        deleteMail() {
-            const mailToDelete = this.getMarkedMails()
-            if (!mailToDelete.length || mailToDelete.length > 1) return
-            mailService.deleteMail(mailToDelete[0].id).then(() => {
-                mailService.query()
-                    .then((mails) => {
-                        this.mails = mails
-                        eventBus.$emit('show-msg', 'Mail deleted')
-                    })
+        deleteMails() {
+            console.log('deleteMails')
+            const mailsToDelete = this.getMarkedMails()
+            console.log('mailsToDelete:', mailsToDelete)
+            if (!mailsToDelete.length) return
+
+            mailsToDelete.forEach((mail) => {
+                setTimeout(() => {
+                    mailService.deleteMail(mail.id)
+                        .then(() => mailService.query())
+                        .then(mails => this.mails = mails
+                        )
+                }, 10)
             })
+
+
+
+            // mailService.deleteMail(mailToDelete[0].id).then(() => {
+            //     mailService.query()
+            //         .then((mails) => {
+            //             this.mails = mails
+            //             eventBus.$emit('show-msg', 'Mail deleted')
+            //         })
+            // })
         },
-        
+
         setfilterBy(filter) {
-            console.log(filter)
             this.filterBy = filter
         },
 
         setSortBy(sortBy) {
+            console.log('sortBy:', sortBy)
             if (sortBy.isInbox) this.sortBy = 'inBox'
-            if (!sortBy.isInbox) this.sortBy = 'sent'
+            if (sortBy.isSent) this.sortBy = 'sent'
+            if (sortBy.isFav) this.sortBy = 'fav'
 
         }
 
@@ -114,12 +145,10 @@ export default {
         mailService.query()
             .then((mails) => {
                 this.mails = mails
-                console.log(this.mails)
             })
     },
     components: {
         mailList,
-        mailActions,
         mailFilter,
         mailSort,
 

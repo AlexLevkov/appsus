@@ -4,33 +4,28 @@ export default {
     props: ['mails'],
     template: `
     <section class="mail-list" v-if="mails">           
-        <!-- <ul class="mail-count">
-            <li>You have {{totalMails}} mails</li>
-            <li>You have {{unreadMails}} unread mails</li>            
-        </ul>               -->
-        <mail-preview v-for="mail in mails"  :key="mail.id" :mail="mail" />                            
-                       
+        <mail-preview @mailDelete="mailDelete" v-for="mail in mails"  :key="mail.id" :mail="mail" />                            
     </section> `,
     components: {
         mailPreview
     },
-    data(){
+    data() {
 
-        return{
+        return {
             // read: null,
             // unread: null,
             // total: null
         }
 
     },
-    computed:{
-        totalMails(){
-           return this.mails.length
+    computed: {
+        totalMails() {
+            return this.mails.length
         },
-        unreadMails(){
+        unreadMails() {
             let unread = 0
             this.mails.forEach((mail) => {
-                if (!mail.isRead){
+                if (!mail.isRead) {
                     unread++
                 }
             });
@@ -40,8 +35,11 @@ export default {
         //     return this.totalMails - this.readMails
         // }
     },
-    methods:{
-
+    methods: {
+        mailDelete(mailId) {
+            // console.log('mailId:', mailId)
+            this.$emit('mailDelete', mailId)
+        }
     }
 }
 
