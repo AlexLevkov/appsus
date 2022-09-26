@@ -20,6 +20,15 @@
     object-fit: cover;
 }
 
+.keep-filter-box{
+    /* margin: 30px 300px 0px; */
+    gap: 10px;
+    display: flex;
+    justify-content:center;
+    width: 85%;
+    margin: 10px;
+}
+
 .keep-task-done{
     text-decoration: line-through;
 }
