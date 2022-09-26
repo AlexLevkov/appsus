@@ -1,0 +1,26 @@
+.keep-filter{
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+.keep-filter-box{
+    /* margin: 30px 300px 0px; */
+    gap: 10px;
+    display: flex;
+    justify-content:center;
+    width: 85%;
+    margin: 10px;
+}
+
+.keep-input-filter{
+    width: 50%;
+    height: 25px;
+    font-size: 25px;
+}
+
+
+.keep-select-filter{
+    width: 70px;
+    font-size: 20px;
+}

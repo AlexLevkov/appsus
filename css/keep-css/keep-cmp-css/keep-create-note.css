@@ -1,0 +1,107 @@
+.keep-subbmit-btn{
+    background-color: lightblue;
+    align-self: start;
+    padding: 10px;
+    font-size: 25px;
+    border-radius: 2em;
+    font-weight: bold;
+    border:none;
+    margin-top: 5px;
+}
+
+/* helper for all create btns */
+.create-note-btn{
+    height: 40px;
+    width: 40px;
+    vertical-align: bottom;
+    border: none;
+    background-color: inherit;
+    
+}
+
+.create-note-btns{
+      display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column-reverse;
+    margin: 10px;
+    padding: 10px;
+    gap: 10px;
+}
+
+.paint-select{
+    height: 40px;
+    width: 40px;
+    position: relative;
+    top: -100%;
+}
+
+.paint-select:hover{
+    cursor: pointer;
+}
+
+.paint-select-btn{
+    /* background-image: url('/icons/paint-board-and-brush.png'); */
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 40px;
+    width: 40px;
+}
+
+.paint-select{
+        opacity: 0;
+}
+
+.keep-create-note{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    /* margin: 10px 200px 0px; */
+}
+
+.keep-notes-form{
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+
+
+.add-note{
+    /* background-image: url('/icons/note.png'); */
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.add-todo{
+    /* background-image: url('/icons/list.png'); */
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.add-img{
+    /* background-image: url('/icons/image.png'); */
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.add-video{
+    /* background-image: url('/icons/video.png'); */
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.keep-input-to-do,
+.keep-input-video,
+.keep-input-img,
+.keep-input-text,
+.keep-input-title{
+    font-size: 20px;
+    border: lightgray 1px solid;
+    outline: none;
+    margin-top: 5px;
+    /* width: 50%; */
+}
+
+.add-size{
+    height: 40px;
+    width: 40px;
+}
