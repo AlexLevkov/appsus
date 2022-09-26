@@ -9,6 +9,16 @@
 @import '/css/keep-css/pages/keep-page.css';
 
 
+.keep-video-note{
+    display: flex;
+    flex-direction: column;
+}
+
+.keep-note-img{
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+}
 
 .keep-task-done{
     text-decoration: line-through;
