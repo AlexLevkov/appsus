@@ -1,5 +1,5 @@
 .mail-details-container{
-    width: 800px;
+    max-width: 600px;
     margin: 20px auto  0 ;
     position: relative;
     background-color: silver;
