@@ -232,4 +232,11 @@ align-items: center;
         .mail-date{
             display: none;
         }
+        .mail-details-container,
+        .mail-replay-actions{
+            width: 90%
+        }
+        /* .mail-replay-actions{
+            width: 90%
+        } */
     }

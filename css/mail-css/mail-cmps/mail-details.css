@@ -1,5 +1,5 @@
 .mail-details-container{
-    max-width: 600px;
+    width: 800px;
     margin: 20px auto  0 ;
     position: relative;
     background-color: silver;
@@ -76,5 +76,12 @@
     background-repeat: no-repeat;
     height: 40px;
     width: 40px;
+
+}
+
+@media screen and (max-width: 600px){
+    .mail-reply-container .mail-replay-actions{
+        width: 90%
+    }
 
 }
