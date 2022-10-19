@@ -17,7 +17,7 @@ export default {
                     <div class="mail-time mail-item">
                         <span @click.stop="deleteMail" ><i class="fa-regular fa-trash-can"></i></span>
                         <span @click.stop="mailRead" class="" v-html="mailReadStatus()"></span>
-                        <article >{{this.timeSent}}</article>
+                        <article class="mail-date" >{{this.timeSent}}</article>
                     </div>
                 </div>
             </div>    

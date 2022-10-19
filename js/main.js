@@ -9,7 +9,7 @@ const options = {
     el: '#app',
     router,
     template: `
-    <section class="app-main-container">
+    <section class="app-main-container" @click="toggleScreen">
     <keep-black-screen></keep-black-screen>
     <app-header />
     <mail-user-mgs />
@@ -19,6 +19,14 @@ const options = {
     </section>
 
     `,
+    methods: {
+        toggleScreen() {
+            const nav = document.querySelector('.app-nav')
+            nav.classList.remove('app-nav-open')
+            const backGroundEl = document.querySelector('.keep-background')
+            backGroundEl.classList.remove('keep-black-screen');
+        }
+    },
     components: {
         appHeader,
         appFooter,
