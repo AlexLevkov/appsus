@@ -23,8 +23,6 @@ const options = {
         toggleScreen() {
             const nav = document.querySelector('.app-nav')
             nav.classList.remove('app-nav-open')
-            const backGroundEl = document.querySelector('.keep-background')
-            backGroundEl.classList.remove('keep-black-screen');
         }
     },
     components: {

@@ -24,9 +24,9 @@ export default {
     methods: {
         toggleNav() {
             const nav = document.querySelector('.app-nav')
-            const backGroundEl = document.querySelector('.keep-background')
+            // const backGroundEl = document.querySelector('.keep-background')
             nav.classList.toggle('app-nav-open')
-            backGroundEl.classList.toggle('keep-black-screen');
+            // backGroundEl.classList.toggle('keep-black-screen');
         },
 
 
